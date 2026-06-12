@@ -8,6 +8,31 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.0] - Usage, Execution, Bootstrap, Validation, and Security Hardening
+
+### Added
+
+- Installation and usage guides with practical invocation prompts: `INSTALL.md`, `USAGE.md`.
+- Jira and GitHub execution playbooks: `playbooks/jira-execution.md`, `playbooks/github-execution.md`, `playbooks/jira-github-delivery.md`.
+- Product repository bootstrap flow with proposal template and checklist.
+- Prompt-based validation test scenarios for idea-to-PRD, Jira-to-development, repo bootstrap, release approval, and security review.
+- Security hardening guides for data classification, secret handling, threat modeling, compliance, and mobile privacy.
+- v0.4 roadmap documenting Phases 8 through 12.
+
+### Changed
+
+- Plugin manifest version updated to `0.4.0`.
+- README now documents operation layers for installation, playbooks, bootstrap, validation, and security hardening.
+- AGENTS now requires installation/usage guidance, execution playbooks, validation scenarios, and security hardening files where relevant.
+
+### Operational Notes
+
+- Jira and GitHub side effects remain gated by explicit approval and `config/tool-access.yaml`.
+- Product repository creation is gated by `APPROVED_FOR_REPO_CREATION`.
+- Development remains gated by `APPROVED_FOR_DEVELOPMENT`.
+- Release publishing remains gated by `APPROVED_FOR_RELEASE`.
+- Sensitive data uncertainty is treated as a blocker.
+
 ## [0.3.0] - Routing, Governance, and Golden Paths
 
 ### Added
