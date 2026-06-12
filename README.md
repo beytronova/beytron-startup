@@ -65,6 +65,16 @@ Version `0.4.0` uses these routing files first:
 - `config/role-skill-map.yaml` maps roles to primary skills, supporting skills, workflows, and expected outputs.
 - `config/tool-access.yaml` defines when GitHub, Jira, web search, Figma, and release systems may be used.
 
+## Role Creation Layer
+
+New roles must follow:
+
+- `governance/role-creation-rules.md`
+- `templates/ROLE.template.md`
+- `checklists/role-creation-checklist.md`
+
+Role additions must update `config/role-skill-map.yaml`, include or reuse a primary skill, and update workflows, handoffs, examples, validation scenarios, and changelog when affected.
+
 ## Usage Layer
 
 - `INSTALL.md` explains plugin installation and verification.
@@ -80,6 +90,7 @@ The `checklists/` directory turns governance into practical gates:
 - Development handoff must pass before QA.
 - QA and release checklists must pass before release execution.
 - Repo bootstrap checklist must pass before repository creation.
+- Role creation checklist must pass before completing a role addition or material role update.
 
 The `validation/` directory adds prompt-based behavior tests for common scenarios.
 
@@ -156,13 +167,14 @@ Approval Status = APPROVED_FOR_RELEASE
 5. Read `config/role-skill-map.yaml` to select role and skill.
 6. Read `config/tool-access.yaml` before using external tools.
 7. Read the selected workflow, role, and skill files.
-8. Read a matching golden path under `examples/` when the request matches a known scenario.
-9. Read a matching playbook under `playbooks/` before Jira or GitHub side effects.
-10. Use templates for produced artifacts.
-11. Use handoff files when responsibility moves between roles.
-12. Use checklists before moving to the next workflow stage.
-13. Apply `security/` and `governance/` before development, QA, release, or risk acceptance.
-14. Apply `RELEASE_POLICY.md` and update `CHANGELOG.md` when changing the plugin itself.
+8. Read `governance/role-creation-rules.md` before adding or materially changing roles.
+9. Read a matching golden path under `examples/` when the request matches a known scenario.
+10. Read a matching playbook under `playbooks/` before Jira or GitHub side effects.
+11. Use templates for produced artifacts.
+12. Use handoff files when responsibility moves between roles.
+13. Use checklists before moving to the next workflow stage.
+14. Apply `security/` and `governance/` before development, QA, release, or risk acceptance.
+15. Apply `RELEASE_POLICY.md` and update `CHANGELOG.md` when changing the plugin itself.
 
 ## Required Operating Rules
 
@@ -174,6 +186,7 @@ Approval Status = APPROVED_FOR_RELEASE
 - Release publishing requires `APPROVED_FOR_RELEASE`.
 - Sensitive data uncertainty blocks architecture, development, or release until resolved.
 - Unknown approval statuses are blockers.
+- New roles must follow the role creation rules and pass the role creation checklist.
 - Plugin changes require changelog and version impact review.
 
 ## Role Model
@@ -182,4 +195,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.4.0` includes routing, centralized approval statuses, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
+Version `0.4.1` includes routing, centralized approval statuses, role creation rules, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
