@@ -1,0 +1,219 @@
+version: 0.3.0
+purpose: Route a request to the correct workflow, roles, skills, approvals, artifacts, and next stage.
+
+stages:
+  idea:
+    workflow: workflows/idea-to-discovery.md
+    required_approval: APPROVED_FOR_DISCOVERY
+    primary_roles:
+      - product
+    supporting_roles:
+      - growth_seo
+      - data_analytics
+      - security_reviewer
+    primary_skills:
+      - skills/product-discovery/SKILL.md
+    required_inputs:
+      - Raw idea
+      - Target user if known
+      - Approval status
+    outputs:
+      - Discovery summary
+      - Continue/stop recommendation
+    next_stage: prd
+
+  prd:
+    workflow: workflows/discovery-to-prd.md
+    required_approval: APPROVED_FOR_DESIGN
+    primary_roles:
+      - product
+    supporting_roles:
+      - product_designer
+      - data_analytics
+      - qa_developer
+    primary_skills:
+      - skills/prd-writing/SKILL.md
+    required_inputs:
+      - Discovery summary
+      - Problem statement
+      - Target users
+      - Evidence and assumptions
+    outputs:
+      - PRD
+      - Product risks
+      - Handoff notes
+    next_stage: design_or_architecture
+
+  design:
+    workflow: workflows/prd-to-design.md
+    required_approval: APPROVED_FOR_DESIGN
+    primary_roles:
+      - product_designer
+    supporting_roles:
+      - product
+      - qa_developer
+      - architect
+    primary_skills:
+      - skills/ux-product-design/SKILL.md
+    required_inputs:
+      - PRD
+      - Acceptance criteria
+      - Platform constraints
+    outputs:
+      - Design brief
+      - User flows
+      - Screen inventory
+      - State matrix
+    next_stage: architecture
+
+  architecture:
+    workflow: workflows/prd-to-architecture.md
+    required_approval: APPROVED_FOR_ARCHITECTURE
+    primary_roles:
+      - architect
+    supporting_roles:
+      - backend_developer
+      - web_developer
+      - mobile_lead
+      - security_reviewer
+      - qa_developer
+    primary_skills:
+      - skills/architecture/SKILL.md
+    required_inputs:
+      - PRD
+      - Design brief when UI exists
+      - Platform constraints
+      - Non-functional requirements
+    outputs:
+      - Architecture
+      - API/data contracts
+      - Technical risks
+      - Development handoff
+    next_stage: backlog
+    missing_dependencies:
+      - skills/architecture/SKILL.md
+
+  backlog:
+    workflow: workflows/architecture-to-backlog.md
+    required_approval: APPROVED_FOR_BACKLOG
+    primary_roles:
+      - product
+      - architect
+    supporting_roles:
+      - qa_developer
+      - relevant_developer_roles
+    primary_skills:
+      - skills/jira-backlog/SKILL.md
+    required_inputs:
+      - PRD
+      - Architecture
+      - Design brief when UI exists
+      - Acceptance criteria
+    outputs:
+      - Epic drafts
+      - Story/task drafts
+      - QA task drafts
+      - Dependency map
+    next_stage: development
+
+  development:
+    workflow: workflows/backlog-to-development.md
+    required_approval: APPROVED_FOR_DEVELOPMENT
+    primary_roles:
+      - relevant_developer_role
+    supporting_roles:
+      - architect
+      - qa_developer
+      - security_reviewer
+    primary_skills:
+      - skills/web-development/SKILL.md
+      - skills/backend-development/SKILL.md
+      - skills/flutter-development/SKILL.md
+      - skills/ios-development/SKILL.md
+      - skills/android-development/SKILL.md
+    required_inputs:
+      - Approved Jira issue or ticket draft
+      - PRD
+      - Architecture
+      - Target repository
+      - Repository AGENTS.md
+    outputs:
+      - Code changes
+      - Tests or validation notes
+      - Implementation summary
+      - QA handoff
+    next_stage: qa
+
+  qa:
+    workflow: workflows/development-to-qa.md
+    required_approval: APPROVED_FOR_QA
+    primary_roles:
+      - qa_developer
+    supporting_roles:
+      - automation_developer
+      - implementing_developer
+    primary_skills:
+      - skills/qa-testing/SKILL.md
+      - skills/automation-testing/SKILL.md
+    required_inputs:
+      - Ticket scope
+      - Implementation summary
+      - Changed areas
+      - Known risks
+    outputs:
+      - QA report
+      - Test evidence
+      - Bug reports
+      - Release readiness recommendation
+    next_stage: release
+
+  release:
+    workflow: workflows/qa-to-release.md
+    required_approval: APPROVED_FOR_RELEASE
+    primary_roles:
+      - devops_release
+    supporting_roles:
+      - qa_developer
+      - product
+      - security_reviewer
+      - data_analytics
+    primary_skills:
+      - skills/release-management/SKILL.md
+    required_inputs:
+      - QA results
+      - Included tickets
+      - Known risks
+      - Rollback risks
+      - Deployment target
+    outputs:
+      - Release notes
+      - Release checklist
+      - Rollback plan
+      - Monitoring plan
+    next_stage: growth
+
+  growth:
+    workflow: workflows/release-to-growth.md
+    required_approval: EXPERIMENT_APPROVAL_WHEN_USER_IMPACT_EXISTS
+    primary_roles:
+      - growth_seo
+    supporting_roles:
+      - data_analytics
+      - product
+      - web_developer
+    primary_skills:
+      - skills/growth-seo/SKILL.md
+      - skills/data-analytics/SKILL.md
+    required_inputs:
+      - Release scope
+      - Product goals
+      - Target audience
+      - Analytics baseline
+    outputs:
+      - Growth plan
+      - SEO/content plan
+      - Metrics plan
+      - Experiment backlog
+    next_stage: learning_loop
+    missing_dependencies:
+      - skills/data-analytics/SKILL.md
