@@ -6,7 +6,7 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 
 ## Mandatory Execution Order
 
-1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, repo-bootstrap, development, QA, release, or growth.
+1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, repo-bootstrap, development, QA, release, growth, or plugin-change.
 2. Read `governance/approval-statuses.md` and `config/approval-statuses.yaml` to validate the approval status and allowed actions.
 3. Read `config/workflow-map.yaml` to route the request to the correct workflow.
 4. Read `config/role-skill-map.yaml` to select the responsible role and skill.
@@ -23,6 +23,7 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 15. Use `security/` for sensitive data, secrets, auth, compliance, mobile privacy, or release risk.
 16. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
 17. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
+18. When adding or materially changing a role, read `governance/role-creation-rules.md`, use `templates/ROLE.template.md`, and validate with `checklists/role-creation-checklist.md`.
 
 ## Approval Status Source of Truth
 
@@ -46,6 +47,24 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 
 If a registry marks a skill or integration as missing, do not pretend it exists. Use the current best available role/workflow, record the gap, and recommend the missing file as follow-up.
 
+## Role Creation Rules
+
+When adding a new role, follow `governance/role-creation-rules.md`.
+
+A new role must normally include or update:
+
+- `roles/{role-slug}.md`
+- `skills/{skill-slug}/SKILL.md` or documented reuse of an existing skill
+- `config/role-skill-map.yaml`
+- relevant workflow files when workflow ownership changes
+- relevant handoff files when responsibility crosses role boundaries
+- relevant checklist files when the role owns a gate
+- relevant example files when user-facing behavior changes
+- relevant validation scenarios when routing, approval, tool use, development, release, or security behavior changes
+- `CHANGELOG.md`
+
+Use `templates/ROLE.template.md` for the role file and `checklists/role-creation-checklist.md` before completion.
+
 ## Validation Checklists
 
 Use checklists as workflow gates:
@@ -56,6 +75,7 @@ Use checklists as workflow gates:
 - `checklists/architecture-checklist.md` before backlog or development.
 - `checklists/ticket-ready-checklist.md` before development.
 - `checklists/repo-bootstrap-checklist.md` before product repository creation.
+- `checklists/role-creation-checklist.md` before completing a role addition or material role update.
 - `checklists/development-handoff-checklist.md` before QA.
 - `checklists/qa-checklist.md` before release.
 - `checklists/release-checklist.md` before release execution.
@@ -168,4 +188,4 @@ When changing the plugin itself, also include:
 
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, approval status is unknown to `config/approval-statuses.yaml`, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, compliance requirements are unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
+Stop when required inputs are missing, approval is unclear, approval status is unknown to `config/approval-statuses.yaml`, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, compliance requirements are unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`, or a role addition fails `checklists/role-creation-checklist.md`.
