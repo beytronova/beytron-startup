@@ -1,0 +1,94 @@
+version: 0.3.0
+purpose: Define when external tools and connectors may be used by workflows and roles.
+
+principles:
+  - Prefer repository-local instructions before plugin defaults.
+  - Use external tools only when the workflow stage and approval allow it.
+  - Do not create external side effects unless the user explicitly asks or approval permits it.
+  - Record tool results in the final artifact or handoff.
+
+tools:
+  web_search:
+    purpose: Current market, competitor, regulatory, platform, pricing, SEO, or documentation evidence.
+    allowed_workflows:
+      - workflows/idea-to-discovery.md
+      - workflows/release-to-growth.md
+    default_mode: read_only
+    side_effects_allowed: false
+    output_required:
+      - Source links
+      - Evidence summary
+      - Confidence level
+
+  github:
+    purpose: Read/write repository files, inspect PRs/issues, create branches/PRs, and preserve delivery traceability.
+    allowed_workflows:
+      - workflows/backlog-to-development.md
+      - workflows/development-to-qa.md
+      - workflows/qa-to-release.md
+    read_allowed_without_explicit_approval: true
+    write_requires:
+      - Explicit user request or workflow approval
+      - Target repository
+      - Repository AGENTS.md review
+      - Scope tied to ticket or artifact
+    destructive_actions_require_explicit_user_approval: true
+    output_required:
+      - Repository
+      - Files changed
+      - Commit/branch/PR reference when created
+      - Verification result
+
+  jira:
+    purpose: Search, draft, create, update, link, and comment on Jira issues.
+    allowed_workflows:
+      - workflows/architecture-to-backlog.md
+      - workflows/development-to-qa.md
+      - workflows/qa-to-release.md
+    read_allowed_without_explicit_approval: true
+    write_requires:
+      - Explicit user request or APPROVED_FOR_BACKLOG
+      - Project key
+      - Issue type
+      - Summary and acceptance criteria
+    output_required:
+      - Issue key
+      - Parent/child links
+      - Dependencies
+      - Status
+
+  figma:
+    purpose: Read or create product design artifacts when UI/UX work requires visual design context.
+    allowed_workflows:
+      - workflows/prd-to-design.md
+      - workflows/backlog-to-development.md
+    read_allowed_without_explicit_approval: true
+    write_requires:
+      - Explicit user request
+      - Design scope
+      - Target file or project
+    output_required:
+      - Figma file or frame link
+      - Design context summary
+      - Handoff notes
+
+  release_systems:
+    purpose: Deployment, release creation, store distribution, monitoring, and rollback.
+    allowed_workflows:
+      - workflows/qa-to-release.md
+    write_requires:
+      - APPROVED_FOR_RELEASE
+      - QA evidence
+      - Rollback plan
+      - Release owner
+    output_required:
+      - Release/deployment reference
+      - Monitoring plan
+      - Rollback status
+
+missing_tool_docs:
+  - integrations/github.md
+  - integrations/jira.md
+  - integrations/web-search.md
+  - integrations/figma.md
+  - integrations/release.md
