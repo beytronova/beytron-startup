@@ -15,7 +15,8 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 7. Read the matching `skills/*/SKILL.md` file.
 8. Use `templates/` for new artifacts.
 9. Use `handoffs/` when responsibility moves between roles.
-10. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
+10. Use `checklists/` before moving an artifact to the next workflow stage.
+11. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
 
 ## Routing Registries
 
@@ -24,6 +25,19 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 - `config/tool-access.yaml`: defines when external tools may be used and when side effects require approval.
 
 If a registry marks a skill or integration as missing, do not pretend it exists. Use the current best available role/workflow, record the gap, and recommend the missing file as follow-up.
+
+## Validation Checklists
+
+Use checklists as workflow gates:
+
+- `checklists/discovery-checklist.md` before PRD.
+- `checklists/prd-checklist.md` before design, architecture, or backlog.
+- `checklists/design-checklist.md` before architecture, backlog, or development.
+- `checklists/architecture-checklist.md` before backlog or development.
+- `checklists/ticket-ready-checklist.md` before development.
+- `checklists/development-handoff-checklist.md` before QA.
+- `checklists/qa-checklist.md` before release.
+- `checklists/release-checklist.md` before release execution.
 
 ## Core Rules
 
@@ -62,6 +76,7 @@ Every substantive output should include:
 - Role used
 - Skill used
 - Workflow used
+- Checklist used
 - Decisions made
 - Open questions
 - Risks and blockers
@@ -69,4 +84,4 @@ Every substantive output should include:
 
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, tests cannot be defined, sensitive data risk is unknown, release risk cannot be accepted explicitly, or a required external tool side effect lacks approval.
+Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, release risk cannot be accepted explicitly, or a required external tool side effect lacks approval.
