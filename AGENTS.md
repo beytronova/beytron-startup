@@ -6,7 +6,7 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 
 ## Mandatory Execution Order
 
-1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, development, QA, release, or growth.
+1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, repo-bootstrap, development, QA, release, or growth.
 2. Read `config/workflow-map.yaml` to route the request to the correct workflow.
 3. Read `config/role-skill-map.yaml` to select the responsible role and skill.
 4. Read `config/tool-access.yaml` before using GitHub, Jira, web search, Figma, or release systems.
@@ -16,8 +16,18 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 8. Use `templates/` for new artifacts.
 9. Use `handoffs/` when responsibility moves between roles.
 10. Use `checklists/` before moving an artifact to the next workflow stage.
-11. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
-12. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
+11. Use `examples/` when the request matches a known golden path.
+12. Use `playbooks/` before Jira or GitHub execution side effects.
+13. Use `repo-bootstrap/` before proposing or creating product repositories.
+14. Use `security/` for sensitive data, secrets, auth, compliance, mobile privacy, or release risk.
+15. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
+16. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
+
+## Setup and Usage Guidance
+
+- Use `INSTALL.md` when the user asks how to install, connect, or verify this plugin.
+- Use `USAGE.md` when the user asks what command or prompt to use.
+- Use `validation/` when checking whether the plugin behavior works as expected.
 
 ## Routing Registries
 
@@ -36,30 +46,72 @@ Use checklists as workflow gates:
 - `checklists/design-checklist.md` before architecture, backlog, or development.
 - `checklists/architecture-checklist.md` before backlog or development.
 - `checklists/ticket-ready-checklist.md` before development.
+- `checklists/repo-bootstrap-checklist.md` before product repository creation.
 - `checklists/development-handoff-checklist.md` before QA.
 - `checklists/qa-checklist.md` before release.
 - `checklists/release-checklist.md` before release execution.
+
+## Execution Playbooks
+
+Before Jira or GitHub side effects, read the matching playbook:
+
+- Jira issue work: `playbooks/jira-execution.md`.
+- GitHub repository, branch, commit, PR, or release work: `playbooks/github-execution.md`.
+- Jira ticket to GitHub implementation: `playbooks/jira-github-delivery.md`.
+
+Side effects require explicit approval or workflow permission. If approval is missing, produce a draft or plan instead of executing.
+
+## Repo Bootstrap
+
+Use `repo-bootstrap/` only after:
+
+```text
+Approval Status = APPROVED_FOR_REPO_CREATION
+```
+
+Repository bootstrap may propose or create a product repository, but it must not start product development. Development still requires:
+
+```text
+Approval Status = APPROVED_FOR_DEVELOPMENT
+```
+
+## Security and Compliance
+
+Use `security/` when a request involves:
+
+- Personal data
+- Financial data
+- Health data
+- Authentication or authorization
+- Secrets or credentials
+- Payments
+- Mobile permissions
+- Third-party integrations
+- Logging, analytics, or retention
+- Release risk
+
+Security uncertainty is a blocker. Do not mark architecture, development, QA, or release as safe until required security facts are known or residual risk is explicitly accepted.
 
 ## Release Discipline
 
 When changing Beytron Startup itself:
 
-- Read `CONTRIBUTING.md` before adding or changing roles, skills, workflows, integrations, templates, checklists, examples, or governance.
+- Read `CONTRIBUTING.md` before adding or changing roles, skills, workflows, integrations, templates, checklists, examples, playbooks, validation scenarios, security files, or governance.
 - Read `RELEASE_POLICY.md` before changing version, release process, release gates, or publishing behavior.
 - Update `CHANGELOG.md` for user-visible changes.
 - Identify version impact as major, minor, or patch.
 - Verify registries reference existing files.
-- Verify examples do not bypass approval, checklists, governance, or target repository `AGENTS.md` instructions.
+- Verify examples do not bypass approval, checklists, governance, security, or target repository `AGENTS.md` instructions.
 - Do not publish tags, GitHub releases, packages, or marketplace submissions without `Approval Status = APPROVED_FOR_RELEASE`.
 
 ## Core Rules
 
 - Never move directly from idea to code.
 - Development requires PRD, architecture, approved ticket scope, explicit approval, and test impact.
-- Do not create real Jira issues, GitHub repositories, branches, pull requests, or releases unless the user explicitly asks or the workflow approval permits it.
+- Do not create real Jira issues, GitHub repositories, branches, pull requests, or releases unless the user explicitly asks and the workflow approval permits it.
 - When working inside a product repository, obey that repository's own `AGENTS.md` before this plugin's generic rules.
-- Keep every output traceable to source artifacts: idea, discovery, PRD, design, architecture, tickets, tests, and approval.
-- Stop instead of guessing when approval, scope, testability, security, or release risk is unclear.
+- Keep every output traceable to source artifacts: idea, discovery, PRD, design, architecture, tickets, tests, approval, security review, and release evidence.
+- Stop instead of guessing when approval, scope, testability, security, compliance, or release risk is unclear.
 
 ## Role Selection
 
@@ -90,6 +142,8 @@ Every substantive output should include:
 - Skill used
 - Workflow used
 - Checklist used
+- Playbook used, if any
+- Security files used, if any
 - Decisions made
 - Open questions
 - Risks and blockers
@@ -103,4 +157,4 @@ When changing the plugin itself, also include:
 
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
+Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, compliance requirements are unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
