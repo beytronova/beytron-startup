@@ -45,10 +45,22 @@ roadmap/
 Idea -> Discovery -> PRD -> Design -> Architecture -> Backlog -> Development -> QA -> Release -> Growth
 ```
 
+## Approval Layer
+
+Approval statuses are centralized:
+
+- `governance/approval-statuses.md` is the canonical human-readable policy.
+- `config/approval-statuses.yaml` is the machine-readable registry.
+
+All workflows, playbooks, examples, templates, repo bootstrap flows, Jira actions, GitHub actions, development actions, security risk acceptance, and release actions must use these statuses exactly.
+
+If another file conflicts with these approval definitions, the centralized approval status files win.
+
 ## Routing Layer
 
 Version `0.4.0` uses these routing files first:
 
+- `config/approval-statuses.yaml` maps approval statuses to allowed actions, blocked actions, required artifacts, and next statuses.
 - `config/workflow-map.yaml` maps stages to workflows, approvals, roles, inputs, outputs, and next stages.
 - `config/role-skill-map.yaml` maps roles to primary skills, supporting skills, workflows, and expected outputs.
 - `config/tool-access.yaml` defines when GitHub, Jira, web search, Figma, and release systems may be used.
@@ -139,17 +151,18 @@ Approval Status = APPROVED_FOR_RELEASE
 
 1. Start with the current stage or user intent.
 2. Read `AGENTS.md`, `INSTALL.md`, and `USAGE.md` when setting up or explaining usage.
-3. Read `config/workflow-map.yaml` to route the request.
-4. Read `config/role-skill-map.yaml` to select role and skill.
-5. Read `config/tool-access.yaml` before using external tools.
-6. Read the selected workflow, role, and skill files.
-7. Read a matching golden path under `examples/` when the request matches a known scenario.
-8. Read a matching playbook under `playbooks/` before Jira or GitHub side effects.
-9. Use templates for produced artifacts.
-10. Use handoff files when responsibility moves between roles.
-11. Use checklists before moving to the next workflow stage.
-12. Apply `security/` and `governance/` before development, QA, release, or risk acceptance.
-13. Apply `RELEASE_POLICY.md` and update `CHANGELOG.md` when changing the plugin itself.
+3. Read `governance/approval-statuses.md` and `config/approval-statuses.yaml` to validate approval.
+4. Read `config/workflow-map.yaml` to route the request.
+5. Read `config/role-skill-map.yaml` to select role and skill.
+6. Read `config/tool-access.yaml` before using external tools.
+7. Read the selected workflow, role, and skill files.
+8. Read a matching golden path under `examples/` when the request matches a known scenario.
+9. Read a matching playbook under `playbooks/` before Jira or GitHub side effects.
+10. Use templates for produced artifacts.
+11. Use handoff files when responsibility moves between roles.
+12. Use checklists before moving to the next workflow stage.
+13. Apply `security/` and `governance/` before development, QA, release, or risk acceptance.
+14. Apply `RELEASE_POLICY.md` and update `CHANGELOG.md` when changing the plugin itself.
 
 ## Required Operating Rules
 
@@ -160,6 +173,7 @@ Approval Status = APPROVED_FOR_RELEASE
 - Repository creation requires `APPROVED_FOR_REPO_CREATION`.
 - Release publishing requires `APPROVED_FOR_RELEASE`.
 - Sensitive data uncertainty blocks architecture, development, or release until resolved.
+- Unknown approval statuses are blockers.
 - Plugin changes require changelog and version impact review.
 
 ## Role Model
@@ -168,4 +182,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.4.0` includes routing, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
+Version `0.4.0` includes routing, centralized approval statuses, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
