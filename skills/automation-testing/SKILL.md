@@ -7,6 +7,33 @@ Use when turning repeatable validation into automated checks.
 - QA identifies stable critical regression paths.
 - CI needs repeatable validation for approved scope.
 
+## Supported Tools
+- Web: Playwright, Cypress, Jest, Vitest, Testing Library
+- Backend/API: pytest, Jest/Vitest, Supertest, contract tests, Newman
+- Flutter: flutter test, integration_test
+- iOS: XCTest, XCUITest
+- Android: JUnit, Robolectric, Espresso, Compose UI tests
+- CI: GitHub Actions, GitLab CI, CircleCI, Bitrise, Fastlane, or repository-native automation
+
+## Selector and Test Design Rules
+- Prefer accessible selectors and user-visible behavior for UI tests.
+- Use stable test IDs only when accessibility selectors are not enough.
+- Avoid brittle selectors based on layout, generated class names, or timing.
+- Make each failure actionable with clear assertion messages.
+- Avoid sleeps; use explicit waits, polling, or framework-native synchronization.
+
+## Test Data Rules
+- Use deterministic fixtures, factories, seed scripts, or mocked services.
+- Isolate tests from shared mutable state.
+- Clean up created data where possible.
+- Document required env vars, accounts, flags, and seed data.
+
+## CI Rules
+- Run fast checks early and expensive E2E checks later.
+- Keep flaky tests quarantined or marked with owner and fix plan.
+- Store artifacts such as screenshots, traces, videos, logs, and reports.
+- Do not hide failures with broad retries; use retries only with flake tracking.
+
 ## Required Reading
 - `roles/automation-developer.md`
 - `roles/qa-developer.md`
@@ -23,18 +50,13 @@ Use when turning repeatable validation into automated checks.
 
 ## Output Format
 - Automation scope
-- Test layer selection
+- Tool and layer selection
 - Tests added or proposed
 - Test data needs
+- Selector strategy
 - Flake risks
 - Coverage gaps
 - CI impact
-
-## Quality Gates
-- Automated tests are deterministic.
-- Failures are actionable.
-- Test value exceeds maintenance cost.
-- Coverage maps to risk.
 
 ## Stop Conditions
 - Flow is unstable.
@@ -44,5 +66,5 @@ Use when turning repeatable validation into automated checks.
 
 ## Example Prompts
 ```text
-Use Automation Testing to automate the stable high-risk checks from this QA plan and document CI impact.
+Use Automation Testing to automate the stable high-risk checks from this QA plan and document CI impact, test data, and flake risks.
 ```
