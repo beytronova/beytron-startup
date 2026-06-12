@@ -1,8 +1,8 @@
 {
   "name": "beytron-startup",
   "displayName": "Beytron Startup",
-  "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, and governance for startup product development.",
-  "version": "0.4.1",
+  "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, Flutter hardening, and governance for startup product development.",
+  "version": "0.4.2",
   "publisher": "beytronova",
   "repository": "https://github.com/beytronova/beytron-startup"
 }
