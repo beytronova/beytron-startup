@@ -17,6 +17,8 @@ Read the relevant files first:
 
 - `AGENTS.md`
 - `README.md`
+- `governance/approval-statuses.md`
+- `config/approval-statuses.yaml`
 - `config/workflow-map.yaml`
 - `config/role-skill-map.yaml`
 - `config/tool-access.yaml`
@@ -26,10 +28,17 @@ Read the relevant files first:
 
 ## Adding or Updating a Role
 
+Before adding or materially changing a role, read:
+
+- `governance/role-creation-rules.md`
+- `templates/ROLE.template.md`
+- `checklists/role-creation-checklist.md`
+
 A role file should define:
 
 - Mission
 - Ownership
+- Non-Ownership
 - Required inputs
 - Workflow protocol
 - Artifact contracts
@@ -43,8 +52,13 @@ When adding a role, also update:
 - `config/role-skill-map.yaml`
 - Relevant workflows
 - Relevant handoffs
-- README or examples when user-facing behavior changes
+- Relevant checklists when the role owns a gate
+- Relevant examples when user-facing behavior changes
+- Relevant validation scenarios when routing, approval, tool use, development, release, or security behavior changes
+- README or AGENTS when the role changes public usage or mandatory execution
 - `CHANGELOG.md`
+
+Role additions are usually minor version changes. Clarifications are usually patch changes. Breaking workflow or approval changes are major changes.
 
 ## Adding or Updating a Skill
 
