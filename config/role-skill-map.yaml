@@ -1,0 +1,205 @@
+version: 0.3.0
+purpose: Map each Beytron Startup role to its primary skill, supporting skills, workflows, and artifacts.
+
+roles:
+  product:
+    role_file: roles/product.md
+    primary_skill: skills/product-discovery/SKILL.md
+    supporting_skills:
+      - skills/prd-writing/SKILL.md
+      - skills/jira-backlog/SKILL.md
+    primary_workflows:
+      - workflows/idea-to-discovery.md
+      - workflows/discovery-to-prd.md
+      - workflows/architecture-to-backlog.md
+    outputs:
+      - Discovery summary
+      - PRD
+      - MVP scope
+      - Acceptance criteria
+      - Product risks
+
+  product_designer:
+    role_file: roles/product-designer.md
+    primary_skill: skills/ux-product-design/SKILL.md
+    supporting_skills: []
+    primary_workflows:
+      - workflows/prd-to-design.md
+    outputs:
+      - Design brief
+      - User flows
+      - Screen inventory
+      - Interaction state matrix
+
+  architect:
+    role_file: roles/architect.md
+    primary_skill: null
+    missing_skill: skills/architecture/SKILL.md
+    supporting_skills:
+      - skills/backend-development/SKILL.md
+      - skills/security-review/SKILL.md
+    primary_workflows:
+      - workflows/prd-to-architecture.md
+      - workflows/architecture-to-backlog.md
+    outputs:
+      - Architecture
+      - API/data contracts
+      - Technical risks
+      - Development handoff
+
+  web_developer:
+    role_file: roles/web-developer.md
+    primary_skill: skills/web-development/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - Web implementation
+      - Tests or validation notes
+      - QA handoff
+
+  backend_developer:
+    role_file: roles/backend-developer.md
+    primary_skill: skills/backend-development/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+      - skills/security-review/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - Backend implementation
+      - API/data contracts
+      - Migration notes
+      - QA handoff
+
+  mobile_lead:
+    role_file: roles/mobile-lead.md
+    primary_skill: skills/flutter-development/SKILL.md
+    supporting_skills:
+      - skills/ios-development/SKILL.md
+      - skills/android-development/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - Mobile implementation plan
+      - Platform routing
+      - Device matrix
+      - Release risk notes
+
+  flutter_developer:
+    role_file: roles/flutter-developer.md
+    primary_skill: skills/flutter-development/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - Flutter implementation
+      - Platform validation
+      - QA handoff
+
+  ios_developer:
+    role_file: roles/ios-developer.md
+    primary_skill: skills/ios-development/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - iOS implementation
+      - Simulator/device validation
+      - QA handoff
+
+  android_developer:
+    role_file: roles/android-developer.md
+    primary_skill: skills/android-development/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/backlog-to-development.md
+    outputs:
+      - Android implementation
+      - Emulator/device validation
+      - QA handoff
+
+  qa_developer:
+    role_file: roles/qa-developer.md
+    primary_skill: skills/qa-testing/SKILL.md
+    supporting_skills:
+      - skills/automation-testing/SKILL.md
+    primary_workflows:
+      - workflows/development-to-qa.md
+    outputs:
+      - Test plan
+      - QA evidence
+      - Bug reports
+      - Release readiness recommendation
+
+  automation_developer:
+    role_file: roles/automation-developer.md
+    primary_skill: skills/automation-testing/SKILL.md
+    supporting_skills:
+      - skills/qa-testing/SKILL.md
+    primary_workflows:
+      - workflows/development-to-qa.md
+    outputs:
+      - Automated tests
+      - CI notes
+      - Flake risk notes
+
+  devops_release:
+    role_file: roles/devops-release.md
+    primary_skill: skills/release-management/SKILL.md
+    supporting_skills:
+      - skills/github-delivery/SKILL.md
+    primary_workflows:
+      - workflows/qa-to-release.md
+    outputs:
+      - Release plan
+      - Rollback plan
+      - Monitoring plan
+
+  growth_seo:
+    role_file: roles/growth-seo.md
+    primary_skill: skills/growth-seo/SKILL.md
+    supporting_skills:
+      - skills/data-analytics/SKILL.md
+    primary_workflows:
+      - workflows/release-to-growth.md
+    outputs:
+      - Growth plan
+      - SEO plan
+      - Experiment backlog
+
+  data_analytics:
+    role_file: roles/data-analytics.md
+    primary_skill: null
+    missing_skill: skills/data-analytics/SKILL.md
+    supporting_skills: []
+    primary_workflows:
+      - workflows/release-to-growth.md
+    outputs:
+      - Metrics plan
+      - Event tracking plan
+      - Dashboard requirements
+
+  security_reviewer:
+    role_file: roles/security-reviewer.md
+    primary_skill: null
+    missing_skill: skills/security-review/SKILL.md
+    supporting_skills: []
+    primary_workflows:
+      - workflows/prd-to-architecture.md
+      - workflows/qa-to-release.md
+    outputs:
+      - Security review
+      - Risk severity
+      - Mitigations
+      - Release blockers
