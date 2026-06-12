@@ -14,6 +14,13 @@ Use when implementing approved native iOS scope.
 - Swift Package Manager or CocoaPods when already used
 - XCTest and XCUITest
 
+## Stack Deep Dives
+After detecting the stack, read the matching deep dive when present:
+
+- `skills/ios-development/stacks/swiftui.md`
+
+If the repository uses UIKit or another architecture without a deep dive, follow repository conventions and this general skill.
+
 ## Primary Languages
 - Swift for app code
 - Objective-C only in legacy repositories or approved bridging work
@@ -62,13 +69,15 @@ pod install
 ## Protocol
 1. Verify approval, PRD, architecture, design, ticket scope, and iOS targets.
 2. Detect SwiftUI/UIKit usage, package manager, scheme, architecture, and test targets.
-3. Respect lifecycle, permissions, storage, networking, accessibility, privacy, and App Store constraints.
-4. Implement only approved scope.
-5. Validate on simulator/device where possible.
-6. Document tests, privacy implications, release impact, and QA handoff.
+3. Read the matching stack deep dive if available.
+4. Respect lifecycle, permissions, storage, networking, accessibility, privacy, and App Store constraints.
+5. Implement only approved scope.
+6. Validate on simulator/device where possible.
+7. Document tests, privacy implications, release impact, and QA handoff.
 
 ## Output Format
 - Stack and architecture detected
+- Stack deep dive used when applicable
 - Implementation summary
 - Files changed
 - iOS capability or permission impact
