@@ -35,6 +35,7 @@ Implement approved backend services, APIs, data models, integrations, and persis
 - Security and release impact summary
 
 ## Reads From
+- `skills/backend-development/SKILL.md`
 - `handoffs/architecture-to-development.md`
 - `governance/coding-standards.md`
 - `governance/security-standards.md`
