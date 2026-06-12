@@ -1,0 +1,87 @@
+# Installation
+
+This guide explains how to add Beytron Startup to a Codex environment as an operating plugin repository.
+
+## Repository
+
+```text
+https://github.com/beytronova/beytron-startup
+```
+
+## Intended Use
+
+Beytron Startup is not a product repository. It is an AI-readable operating system for product delivery.
+
+Use it to guide:
+
+- Idea discovery
+- PRD creation
+- Product design handoff
+- Architecture planning
+- Jira backlog creation
+- GitHub implementation workflows
+- QA and test automation
+- Release planning
+- Growth and analytics follow-up
+
+## Prerequisites
+
+Before using the plugin, ensure Codex can access:
+
+- This repository
+- Target product repositories when development is requested
+- Jira when ticket creation, reading, or updates are requested
+- GitHub when branches, pull requests, repository creation, or repository inspection is requested
+- Figma or design source when design work is requested
+- Web search when research is requested
+
+## Installation Model
+
+Use this repository as a Codex plugin source when the Codex environment supports repository-backed plugins.
+
+The plugin manifest is located at:
+
+```text
+.codex-plugin/plugin.json
+```
+
+## First Read Order
+
+When Codex starts work using this plugin, it should read:
+
+1. `AGENTS.md`
+2. `README.md`
+3. `config/workflow-map.yaml`
+4. `config/role-skill-map.yaml`
+5. `config/tool-access.yaml`
+6. The matching workflow, role, skill, checklist, and example files
+
+## Verification After Installation
+
+Ask Codex:
+
+```text
+Using Beytron Startup, explain how a raw idea moves to development approval.
+```
+
+Expected behavior:
+
+- Codex should not jump directly to code.
+- Codex should mention discovery, PRD, design, architecture, backlog, approval, development, QA, release, and growth.
+- Codex should reference routing registries, role/skill selection, checklists, governance, and examples.
+
+## Common Setup Issues
+
+If Codex does not follow the plugin:
+
+- Confirm the repository is accessible.
+- Confirm `.codex-plugin/plugin.json` exists.
+- Confirm `AGENTS.md` is read before task execution.
+- Confirm the user prompt explicitly asks to use Beytron Startup when needed.
+- Confirm target product repositories also have their own `AGENTS.md`.
+
+## Safe Start Prompt
+
+```text
+Use Beytron Startup. Route this request through the correct workflow, role, skill, checklist, and example before taking action: {request}
+```
