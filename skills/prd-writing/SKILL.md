@@ -7,6 +7,49 @@ Use when converting discovery into product requirements that can drive design, a
 - Discovery has a continue recommendation.
 - Backlog or architecture work needs product scope.
 
+## Artifact Structure
+Use `templates/PRD.template.md` and include:
+- Status and approval
+- Summary
+- Problem
+- Target users
+- Goals
+- Non-goals
+- MVP scope
+- User flows
+- Acceptance criteria
+- Metrics
+- Dependencies
+- Risks
+- Open questions
+- Handoff notes
+- Readiness check
+
+## Requirement Data Model
+Acceptance criteria must be testable:
+
+```text
+Given ...
+When ...
+Then ...
+```
+
+Metrics must be measurable:
+
+```text
+Metric:
+Definition:
+Baseline:
+Target:
+Measurement method:
+```
+
+## Integration Standards
+- Design work consumes PRD goals, user flows, and acceptance criteria.
+- Architecture consumes MVP scope, constraints, data needs, integrations, and non-functional requirements.
+- Jira backlog consumes acceptance criteria, dependencies, and release impact.
+- QA consumes acceptance criteria and risks.
+
 ## Required Reading
 - `roles/product.md`
 - `workflows/discovery-to-prd.md`
@@ -27,12 +70,6 @@ Use when converting discovery into product requirements that can drive design, a
 - Open questions
 - Handoff notes
 - Readiness status
-
-## Quality Gates
-- MVP scope is narrow.
-- Acceptance criteria are testable.
-- Metrics are measurable.
-- Non-goals prevent scope creep.
 
 ## Stop Conditions
 - Discovery is missing.
