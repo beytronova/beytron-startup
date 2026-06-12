@@ -7,6 +7,26 @@ Use when validating approved development work and deciding whether it is ready f
 - Development work is complete or ready for QA.
 - Acceptance criteria need test coverage.
 
+## Supported Tools
+- Web: Playwright, Cypress, Jest, Vitest, Testing Library, Storybook interaction tests
+- Flutter: flutter test, integration_test, golden tests when used by repo
+- iOS: XCTest, XCUITest, xcodebuild test
+- Android: JUnit, Robolectric, Espresso, Compose UI tests, connectedAndroidTest
+- Backend/API: Postman/Newman, pytest, Jest/Vitest, Supertest, contract tests, integration tests
+- Manual QA: exploratory, accessibility, device/browser matrix, release smoke checks
+
+## Test Selection Rules
+- Use unit tests for deterministic logic.
+- Use integration tests for service, persistence, API, and module boundaries.
+- Use UI/E2E tests for critical user journeys.
+- Use manual validation for visual, permission, device, store, or ambiguous UX risks.
+- Prefer the repository's existing test framework over introducing a new one.
+
+## Test Data Rules
+- Use stable fixtures or seeded data when available.
+- Do not use production data unless explicitly approved and anonymized.
+- Document account, environment, feature flag, seed, and cleanup requirements.
+
 ## Required Reading
 - `roles/qa-developer.md`
 - `workflows/development-to-qa.md`
@@ -17,14 +37,15 @@ Use when validating approved development work and deciding whether it is ready f
 
 ## Protocol
 1. Read ticket scope, acceptance criteria, implementation summary, changed areas, and known risks.
-2. Map each acceptance criterion to test scenarios.
-3. Cover happy path, negative path, edge cases, accessibility, regression, data, and platform risk.
+2. Map each acceptance criterion to test scenarios and test tools.
+3. Cover happy path, negative path, edge cases, accessibility, regression, data, security, and platform risk.
 4. Run available checks or document blockers.
 5. Record evidence, defects, skipped tests, and release recommendation.
 6. Escalate critical blockers instead of marking QA complete.
 
 ## Output Format
 - QA scope
+- Tool selection
 - Acceptance criteria mapping
 - Test scenarios
 - Evidence
@@ -46,5 +67,5 @@ Use when validating approved development work and deciding whether it is ready f
 
 ## Example Prompts
 ```text
-Use QA Testing to validate this implementation and produce release readiness with evidence and blockers.
+Use QA Testing to validate this implementation, choose the correct test tools, and produce release readiness with evidence and blockers.
 ```
