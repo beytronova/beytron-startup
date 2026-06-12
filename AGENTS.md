@@ -4,15 +4,24 @@
 
 Beytron Startup provides an agile AI delivery system for Codex. It does not own product code directly; it guides how product repositories should be researched, designed, implemented, tested, released, and improved.
 
+## Mandatory Execution Order
+
+1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, development, QA, release, or growth.
+2. Read the matching file under `workflows/`.
+3. Select the responsible role from `roles/`.
+4. Read the matching `skills/*/SKILL.md` file.
+5. Use `templates/` for new artifacts.
+6. Use `handoffs/` when responsibility moves between roles.
+7. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
+
 ## Core Rules
 
 - Never move directly from idea to code.
-- Read the relevant workflow before acting.
-- Read the relevant role before producing outputs.
-- Use handoff files when transferring work between roles.
-- Use governance files for readiness, done, testing, coding, approval, and release gates.
-- Development requires PRD, architecture, ticket scope, approval, and test impact.
-- QA and release work must be explicit before shipping.
+- Development requires PRD, architecture, approved ticket scope, explicit approval, and test impact.
+- Do not create real Jira issues, GitHub repositories, branches, pull requests, or releases unless the user explicitly asks or the workflow approval permits it.
+- When working inside a product repository, obey that repository's own `AGENTS.md` before this plugin's generic rules.
+- Keep every output traceable to source artifacts: idea, discovery, PRD, design, architecture, tickets, tests, and approval.
+- Stop instead of guessing when approval, scope, testability, security, or release risk is unclear.
 
 ## Role Selection
 
@@ -31,6 +40,18 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 - Analytics uses `roles/data-analytics.md`.
 - Security review uses `roles/security-reviewer.md`.
 
+## Standard Output Discipline
+
+Every substantive output should include:
+
+- Source artifacts read
+- Role used
+- Workflow used
+- Decisions made
+- Open questions
+- Risks and blockers
+- Next role or next workflow
+
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, tests cannot be defined, or release risk is unknown.
+Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, tests cannot be defined, sensitive data risk is unknown, or release risk cannot be accepted explicitly.
