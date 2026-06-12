@@ -8,24 +8,29 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
-## [0.4.1] - Centralized Approval Statuses
+## [0.4.1] - Centralized Approval Statuses and Role Creation Rules
 
 ### Added
 
 - Canonical approval status policy: `governance/approval-statuses.md`.
 - Machine-readable approval status registry: `config/approval-statuses.yaml`.
+- Role creation rules: `governance/role-creation-rules.md`.
+- Role template: `templates/ROLE.template.md`.
+- Role creation checklist: `checklists/role-creation-checklist.md`.
 
 ### Changed
 
-- `AGENTS.md` now requires approval validation before workflow routing.
-- `README.md` now documents the approval layer and centralized source of truth.
+- `AGENTS.md` now requires approval validation before workflow routing and role creation validation before completing new roles.
+- `README.md` now documents the approval layer, centralized source of truth, and role creation layer.
 - `USAGE.md` now requires only canonical approval statuses and includes approval-aware final response format.
+- `CONTRIBUTING.md` now routes role additions through the role creation rules, role template, and role creation checklist.
 - Plugin manifest version updated to `0.4.1`.
 
 ### Operational Notes
 
 - Unknown approval statuses are blockers.
 - If any file conflicts with centralized approval definitions, `governance/approval-statuses.md` and `config/approval-statuses.yaml` win.
+- New roles must create/update required role, skill, registry, workflow, handoff, checklist, example, validation, and changelog artifacts as applicable.
 
 ## [0.4.0] - Usage, Execution, Bootstrap, Validation, and Security Hardening
 
