@@ -9,18 +9,22 @@ principles:
 
 tools:
   web_search:
+    integration_doc: integrations/web-search.md
     purpose: Current market, competitor, regulatory, platform, pricing, SEO, or documentation evidence.
     allowed_workflows:
       - workflows/idea-to-discovery.md
+      - workflows/discovery-to-prd.md
       - workflows/release-to-growth.md
     default_mode: read_only
     side_effects_allowed: false
     output_required:
       - Source links
       - Evidence summary
+      - Fact vs assumption separation
       - Confidence level
 
   github:
+    integration_doc: integrations/github.md
     purpose: Read/write repository files, inspect PRs/issues, create branches/PRs, and preserve delivery traceability.
     allowed_workflows:
       - workflows/backlog-to-development.md
@@ -40,6 +44,7 @@ tools:
       - Verification result
 
   jira:
+    integration_doc: integrations/jira.md
     purpose: Search, draft, create, update, link, and comment on Jira issues.
     allowed_workflows:
       - workflows/architecture-to-backlog.md
@@ -58,9 +63,11 @@ tools:
       - Status
 
   figma:
+    integration_doc: integrations/figma.md
     purpose: Read or create product design artifacts when UI/UX work requires visual design context.
     allowed_workflows:
       - workflows/prd-to-design.md
+      - workflows/prd-to-architecture.md
       - workflows/backlog-to-development.md
     read_allowed_without_explicit_approval: true
     write_requires:
@@ -73,11 +80,13 @@ tools:
       - Handoff notes
 
   release_systems:
+    integration_doc: integrations/release.md
     purpose: Deployment, release creation, store distribution, monitoring, and rollback.
     allowed_workflows:
       - workflows/qa-to-release.md
     write_requires:
       - APPROVED_FOR_RELEASE
+      - Explicit user request for execution
       - QA evidence
       - Rollback plan
       - Release owner
@@ -86,9 +95,18 @@ tools:
       - Monitoring plan
       - Rollback status
 
-missing_tool_docs:
-  - integrations/github.md
-  - integrations/jira.md
-  - integrations/web-search.md
-  - integrations/figma.md
-  - integrations/release.md
+side_effect_policy:
+  read_only_allowed_when:
+    - Workflow requires external context
+    - User asks for inspection or research
+    - No external state is changed
+  write_allowed_when:
+    - User explicitly requests the action
+    - Approval state permits the action
+    - Required inputs are present
+    - Integration doc rules are satisfied
+  always_stop_for:
+    - Destructive actions without explicit approval
+    - Missing target system or repository/project
+    - Missing approval for side effects
+    - Missing credentials or insufficient permissions
