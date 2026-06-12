@@ -2,7 +2,7 @@
 
 Beytron Startup is a Codex plugin blueprint for running an agile AI delivery organization across product repositories.
 
-It defines reusable roles, workflows, skills, routing registries, handoffs, templates, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
+It defines reusable roles, workflows, skills, routing registries, handoffs, templates, checklists, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
 
 ## Purpose
 
@@ -24,6 +24,7 @@ workflows/
 skills/
 handoffs/
 templates/
+checklists/
 governance/
 ```
 
@@ -43,6 +44,16 @@ Version `0.3.0` introduces the first routing foundation:
 
 These files are the first place Codex should look when deciding what to do next.
 
+## Validation Layer
+
+The `checklists/` directory turns governance into practical gates:
+
+- Discovery must pass before PRD.
+- PRD must pass before design, architecture, or backlog.
+- Architecture and ticket readiness must pass before development.
+- Development handoff must pass before QA.
+- QA and release checklists must pass before release execution.
+
 ## How To Use
 
 1. Start with the current stage or user intent.
@@ -52,7 +63,8 @@ These files are the first place Codex should look when deciding what to do next.
 5. Read the selected workflow, role, and skill files.
 6. Use templates for produced artifacts.
 7. Use handoff files when responsibility moves between roles.
-8. Apply governance files before development, QA, release, or risk acceptance.
+8. Use checklists before moving to the next workflow stage.
+9. Apply governance files before development, QA, release, or risk acceptance.
 
 ## Required Operating Rules
 
@@ -68,4 +80,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.3.0` is the routing foundation phase. It is ready to guide Codex work through central registries, and it intentionally records missing next-phase dependencies such as architecture, data analytics, security review, integration docs, checklists, examples, and changelog.
+Version `0.3.0` now includes routing, core skills, integration contracts, and validation checklists. Upcoming phases add stack deep dives, examples/golden paths, and versioning/release discipline.
