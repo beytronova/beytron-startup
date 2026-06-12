@@ -7,6 +7,49 @@ Use when planning launch, SEO, content, positioning, and measurable growth exper
 - A release is ready for market-facing planning.
 - Product goals need acquisition or activation experiments.
 
+## Artifact Structure
+Use `templates/GROWTH_PLAN.template.md` and include:
+- Audience
+- Positioning
+- SEO/content opportunities
+- Launch channels
+- Experiments
+- Metrics
+- Follow-up
+
+## SEO and Experiment Data Model
+SEO opportunity:
+
+```text
+Intent:
+Keyword/topic:
+Funnel stage:
+Content asset:
+User problem:
+Priority:
+Measurement:
+```
+
+Experiment:
+
+```text
+Hypothesis:
+Audience:
+Change:
+Primary metric:
+Guardrail metric:
+Duration:
+Decision rule:
+Owner:
+```
+
+## Integration Standards
+- Coordinate measurement with `templates/METRICS_PLAN.template.md`.
+- Do not propose tracking that violates privacy/security rules.
+- Route web content changes to Web Development.
+- Route event tracking changes to Web, Mobile, Backend, or Data Analytics based on implementation ownership.
+- Keep messaging aligned with PRD and release notes.
+
 ## Required Reading
 - `roles/growth-seo.md`
 - `roles/data-analytics.md`
@@ -30,12 +73,6 @@ Use when planning launch, SEO, content, positioning, and measurable growth exper
 - Experiments
 - Metrics and analytics needs
 - Follow-up plan
-
-## Quality Gates
-- Messaging matches real product capability.
-- Experiments are measurable.
-- Analytics needs are explicit.
-- SEO supports user intent rather than keyword stuffing.
 
 ## Stop Conditions
 - Target audience is unclear.
