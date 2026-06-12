@@ -8,6 +8,30 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.3] - Android Development Hardening
+
+### Added
+
+- Android XML Views stack deep dive: `skills/android-development/stacks/xml-views.md`.
+- Android Coroutines and Flow deep dive: `skills/android-development/stacks/coroutines-flow.md`.
+- Android Room and DataStore deep dive: `skills/android-development/stacks/room-datastore.md`.
+- Android Networking deep dive: `skills/android-development/stacks/networking.md`.
+- Android Hilt dependency injection deep dive: `skills/android-development/stacks/hilt.md`.
+- Android testing guide: `skills/android-development/guides/testing.md`.
+- Android performance guide: `skills/android-development/guides/performance.md`.
+- Android flavors and release guide: `skills/android-development/guides/flavors-release.md`.
+- Android accessibility and i18n guide: `skills/android-development/guides/accessibility-i18n.md`.
+
+### Changed
+
+- `skills/android-development/SKILL.md` now references the new Android stack deep dives and production guides.
+- `skills/android-development/stacks/README.md` now indexes Android stack and companion guide selection rules.
+- Plugin manifest version updated to `0.4.3`.
+
+### Operational Notes
+
+- Android work now has stronger guidance for XML Views, Compose, coroutines/Flow, Room/DataStore, networking, Hilt, testing, performance, release variants, accessibility, localization, and mobile privacy.
+
 ## [0.4.2] - Flutter Development Hardening
 
 ### Added
