@@ -1,8 +1,8 @@
 {
   "name": "beytron-startup",
   "displayName": "Beytron Startup",
-  "description": "Agile AI delivery roles, workflows, skills, handoffs, templates, and governance for startup product development.",
-  "version": "0.1.0",
+  "description": "Operational agile AI delivery roles, workflows, skills, handoffs, templates, and governance for startup product development.",
+  "version": "0.2.0",
   "publisher": "beytronova",
   "repository": "https://github.com/beytronova/beytron-startup"
 }
