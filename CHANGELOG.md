@@ -8,6 +8,30 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.4] - iOS Development Hardening
+
+### Added
+
+- iOS UIKit stack deep dive: `skills/ios-development/stacks/uikit.md`.
+- iOS Concurrency and Combine deep dive: `skills/ios-development/stacks/concurrency-combine.md`.
+- iOS Persistence and Keychain deep dive: `skills/ios-development/stacks/persistence-keychain.md`.
+- iOS Networking deep dive: `skills/ios-development/stacks/networking.md`.
+- iOS Modular Architecture and Dependency Injection deep dive: `skills/ios-development/stacks/modular-di.md`.
+- iOS testing guide: `skills/ios-development/guides/testing.md`.
+- iOS performance guide: `skills/ios-development/guides/performance.md`.
+- iOS build and release guide: `skills/ios-development/guides/build-release.md`.
+- iOS accessibility and i18n guide: `skills/ios-development/guides/accessibility-i18n.md`.
+
+### Changed
+
+- `skills/ios-development/SKILL.md` now references the new iOS stack deep dives and production guides.
+- `skills/ios-development/stacks/README.md` now indexes iOS stack and companion guide selection rules.
+- Plugin manifest version updated to `0.4.4`.
+
+### Operational Notes
+
+- iOS work now has stronger guidance for UIKit, SwiftUI, Swift concurrency, Combine, persistence, Keychain, networking, modular architecture, testing, performance, build/release, accessibility, localization, App Store privacy, and mobile privacy.
+
 ## [0.4.3] - Android Development Hardening
 
 ### Added
