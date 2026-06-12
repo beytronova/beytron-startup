@@ -17,6 +17,7 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 9. Use `handoffs/` when responsibility moves between roles.
 10. Use `checklists/` before moving an artifact to the next workflow stage.
 11. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
+12. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
 
 ## Routing Registries
 
@@ -38,6 +39,18 @@ Use checklists as workflow gates:
 - `checklists/development-handoff-checklist.md` before QA.
 - `checklists/qa-checklist.md` before release.
 - `checklists/release-checklist.md` before release execution.
+
+## Release Discipline
+
+When changing Beytron Startup itself:
+
+- Read `CONTRIBUTING.md` before adding or changing roles, skills, workflows, integrations, templates, checklists, examples, or governance.
+- Read `RELEASE_POLICY.md` before changing version, release process, release gates, or publishing behavior.
+- Update `CHANGELOG.md` for user-visible changes.
+- Identify version impact as major, minor, or patch.
+- Verify registries reference existing files.
+- Verify examples do not bypass approval, checklists, governance, or target repository `AGENTS.md` instructions.
+- Do not publish tags, GitHub releases, packages, or marketplace submissions without `Approval Status = APPROVED_FOR_RELEASE`.
 
 ## Core Rules
 
@@ -82,6 +95,12 @@ Every substantive output should include:
 - Risks and blockers
 - Next role or next workflow
 
+When changing the plugin itself, also include:
+
+- Version impact
+- Changelog status
+- Release policy impact
+
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, release risk cannot be accepted explicitly, or a required external tool side effect lacks approval.
+Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
