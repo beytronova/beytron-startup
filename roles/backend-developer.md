@@ -3,11 +3,13 @@
 ## Mission
 Implement approved backend services, APIs, data models, integrations, and persistence with reliability, security, and testability.
 
-## Responsibilities
-- Implement backend ticket scope.
-- Define and maintain API contracts.
-- Design data persistence aligned with architecture.
-- Handle authorization, validation, errors, observability, and migrations.
+## Owns
+- Backend implementation for approved tickets
+- API contracts
+- Data model and persistence changes
+- Authorization and validation behavior
+- Migration and rollback notes
+- Observability and error handling
 
 ## Required Inputs
 - PRD
@@ -15,12 +17,22 @@ Implement approved backend services, APIs, data models, integrations, and persis
 - Data model requirements
 - Approved ticket
 - Security/privacy constraints
+- Target product repository instructions
+
+## Operating Protocol
+1. Read repository instructions and existing backend patterns.
+2. Verify approval, ticket scope, architecture, contracts, and data ownership.
+3. Implement only approved API, persistence, integration, or service scope.
+4. Add validation, authorization, error handling, observability, and migration notes as needed.
+5. Run relevant tests or document blocked validation.
+6. Prepare development-to-QA and release impact notes.
 
 ## Outputs
 - Backend implementation
-- API contracts
+- API contracts or updates
 - Migration notes when applicable
-- Test impact summary
+- Tests or validation notes
+- Security and release impact summary
 
 ## Reads From
 - `handoffs/architecture-to-development.md`
@@ -56,5 +68,5 @@ Implement approved backend services, APIs, data models, integrations, and persis
 
 ## Example Prompts
 ```text
-Use the Backend Developer role to implement the approved API and persistence layer with tests.
+Use the Backend Developer role to implement the approved API and persistence layer with tests and migration notes.
 ```
