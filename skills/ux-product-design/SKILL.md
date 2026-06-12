@@ -7,6 +7,39 @@ Use when translating PRD scope into user flows, screen inventory, interaction st
 - PRD is approved for design.
 - Developers need screen and state clarity before implementation.
 
+## Artifact Structure
+Use `templates/DESIGN_BRIEF.template.md` and include:
+- Product context
+- Target users
+- Primary user flows
+- Screen inventory
+- Interaction states
+- Accessibility notes
+- UX risks
+- Open questions
+- Handoff checklist
+
+## Design Data Model
+Screen inventory should follow:
+
+```text
+Screen:
+Purpose:
+Entry points:
+Primary action:
+Secondary actions:
+States: Loading / Empty / Error / Success / Permission / Offline
+Analytics events:
+Accessibility notes:
+```
+
+## Implementation Handoff Standards
+- Name screens and states consistently.
+- Include edge cases and validation messages.
+- Include responsive/platform notes for web/mobile.
+- Include accessibility and localization considerations.
+- Flag design choices that affect architecture or data model.
+
 ## Required Reading
 - `roles/product-designer.md`
 - `workflows/prd-to-design.md`
@@ -28,12 +61,6 @@ Use when translating PRD scope into user flows, screen inventory, interaction st
 - State matrix
 - UX risks
 - Open questions
-
-## Quality Gates
-- Core flow can be implemented and tested.
-- Edge states are explicit.
-- Accessibility concerns are visible.
-- No design decision contradicts PRD scope.
 
 ## Stop Conditions
 - PRD is missing or unstable.
