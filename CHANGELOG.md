@@ -8,6 +8,29 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.2] - Flutter Development Hardening
+
+### Added
+
+- Flutter BLoC stack deep dive: `skills/flutter-development/stacks/bloc.md`.
+- Flutter Provider stack deep dive: `skills/flutter-development/stacks/provider.md`.
+- Flutter Firebase stack deep dive: `skills/flutter-development/stacks/firebase.md`.
+- Flutter platform channels deep dive: `skills/flutter-development/stacks/platform-channels.md`.
+- Flutter performance guide: `skills/flutter-development/guides/performance.md`.
+- Flutter testing guide: `skills/flutter-development/guides/testing.md`.
+- Flutter flavors and release guide: `skills/flutter-development/guides/flavors-release.md`.
+- Flutter accessibility and i18n guide: `skills/flutter-development/guides/accessibility-i18n.md`.
+
+### Changed
+
+- `skills/flutter-development/SKILL.md` now references the new stack deep dives and production guides.
+- `skills/flutter-development/stacks/README.md` now indexes Flutter stack and companion guide selection rules.
+- Plugin manifest version updated to `0.4.2`.
+
+### Operational Notes
+
+- Flutter work now has stronger guidance for state management, Firebase, native platform channels, performance, testing, release flavors, accessibility, localization, and mobile privacy.
+
 ## [0.4.1] - Centralized Approval Statuses and Role Creation Rules
 
 ### Added
