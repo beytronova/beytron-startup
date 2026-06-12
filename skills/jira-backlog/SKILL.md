@@ -7,6 +7,50 @@ Use when converting PRD, design, and architecture into backlog-ready epics, stor
 - PRD and architecture are ready for backlog.
 - Work needs to be broken down for development.
 
+## Ticket Structure Standards
+Epics must include:
+- Goal
+- Scope
+- Linked PRD
+- Linked architecture
+- Stories
+- Acceptance criteria
+- Risks
+
+Stories/tasks must include:
+- User story or system outcome
+- Scope and non-scope
+- Acceptance criteria
+- Technical notes
+- Test notes
+- Dependencies
+- Release impact
+
+## Ticket Data Model
+Use this structure for every ticket draft:
+
+```text
+Type: Epic / Story / Task / Subtask / QA / Release
+Summary:
+Parent:
+Linked artifacts:
+Description:
+Acceptance criteria:
+Technical notes:
+Test notes:
+Dependencies:
+Labels:
+Priority:
+Release impact:
+```
+
+## Integration Standards
+- Draft tickets first unless the user explicitly requests Jira issue creation.
+- Preserve parent-child relationships when creating real Jira issues.
+- Link related issues and blockers when supported.
+- Keep ticket keys in later GitHub branch, commit, PR, QA, and release summaries.
+- Do not create duplicate issues; search existing project when updating real Jira.
+
 ## Required Reading
 - `workflows/architecture-to-backlog.md`
 - `templates/JIRA_EPIC.template.md`
@@ -28,12 +72,6 @@ Use when converting PRD, design, and architecture into backlog-ready epics, stor
 - QA task drafts
 - Dependency map
 - Definition of Ready status
-
-## Quality Gates
-- Every ticket traces to PRD and architecture.
-- Acceptance criteria are testable.
-- Dependencies are explicit.
-- QA and release impact are included.
 
 ## Stop Conditions
 - PRD or architecture is missing.
