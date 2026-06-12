@@ -14,6 +14,13 @@ Use when implementing approved native Android scope.
 - Gradle with Android Gradle Plugin
 - JUnit, Robolectric, Espresso, Compose UI testing, and instrumented tests
 
+## Stack Deep Dives
+After detecting the stack, read the matching deep dive when present:
+
+- `skills/android-development/stacks/compose.md`
+
+If the repository uses XML Views or another architecture without a deep dive, follow repository conventions and this general skill.
+
 ## Primary Languages
 - Kotlin for new Android code when possible
 - Java only in Java-first legacy repositories or approved interop work
@@ -65,13 +72,15 @@ Use repository Gradle tasks first. Common commands:
 ## Protocol
 1. Verify approval, PRD, architecture, design, ticket scope, and Android API/device targets.
 2. Detect Compose/XML, architecture, modules, package manager, and test setup.
-3. Respect lifecycle, permissions, storage, networking, accessibility, privacy, and Play constraints.
-4. Implement only approved scope.
-5. Validate on emulator/device where possible.
-6. Document tests, privacy implications, release impact, and QA handoff.
+3. Read the matching stack deep dive if available.
+4. Respect lifecycle, permissions, storage, networking, accessibility, privacy, and Play constraints.
+5. Implement only approved scope.
+6. Validate on emulator/device where possible.
+7. Document tests, privacy implications, release impact, and QA handoff.
 
 ## Output Format
 - Stack and architecture detected
+- Stack deep dive used when applicable
 - Implementation summary
 - Files changed
 - Android capability or permission impact
