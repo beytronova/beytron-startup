@@ -7,6 +7,45 @@ Use when working with repositories, branches, pull requests, reviews, commits, r
 - Development work requires branches, commits, or pull requests.
 - PR review, issue linking, or release traceability is needed.
 
+## Repository Standards
+- Read target repository `AGENTS.md` before changing files.
+- Respect existing branch, commit, CI, PR, and review conventions.
+- Keep work scoped to approved tickets.
+- Preserve unrelated user changes.
+- Do not perform destructive actions without explicit approval.
+
+## Branch and Commit Standards
+Recommended branch naming:
+
+```text
+feature/{ticket-key}-{short-slug}
+fix/{ticket-key}-{short-slug}
+docs/{ticket-key}-{short-slug}
+```
+
+Recommended commit shape:
+
+```text
+{ticket-key}: concise imperative summary
+```
+
+## Pull Request Standards
+PR descriptions should include:
+- Linked Jira ticket
+- Linked PRD/architecture when relevant
+- Summary
+- Files/areas changed
+- Tests/checks run
+- Screenshots or evidence when UI exists
+- Risks and rollback notes
+- QA handoff
+
+## Integration Standards
+- Link Jira keys in branch, commit, PR title, and PR body when available.
+- Keep release notes aligned with merged changes.
+- Use GitHub checks as validation evidence.
+- Do not create repositories unless approval and target ownership are explicit.
+
 ## Required Reading
 - Target repository `AGENTS.md`
 - `governance/approval-rules.md`
@@ -24,17 +63,12 @@ Use when working with repositories, branches, pull requests, reviews, commits, r
 
 ## Output Format
 - Repository target
+- Branch/PR/commit references when created
 - Files changed
 - Jira/PRD/architecture references
 - Tests or checks
 - Residual risk
 - Next action
-
-## Quality Gates
-- Repo instructions were respected.
-- Changes are traceable.
-- No unrelated files were changed.
-- Verification result is stated.
 
 ## Stop Conditions
 - Target repo is unclear.
