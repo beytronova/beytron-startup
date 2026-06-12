@@ -2,12 +2,21 @@
 
 This guide gives practical commands and prompts for running Beytron Startup with Codex.
 
+## Approval Status Rule
+
+Before any approval-sensitive action, Codex must read:
+
+- `governance/approval-statuses.md`
+- `config/approval-statuses.yaml`
+
+Use only the approval statuses defined there. Unknown approval statuses are blockers.
+
 ## Universal Prompt Pattern
 
 ```text
 Use Beytron Startup.
-Current stage: {idea|discovery|PRD|design|architecture|backlog|development|QA|release|growth}
-Approval Status = {status}
+Current stage: {idea|discovery|PRD|design|architecture|backlog|repo-bootstrap|development|QA|release|growth}
+Approval Status = {status from governance/approval-statuses.md}
 Goal: {what you want}
 Inputs: {links, files, tickets, repository, constraints}
 ```
@@ -93,6 +102,8 @@ Create Jira issues from these approved ticket drafts.
 
 Codex must read:
 
+- `governance/approval-statuses.md`
+- `config/approval-statuses.yaml`
 - `playbooks/jira-execution.md`
 - `integrations/jira.md`
 - `config/tool-access.yaml`
@@ -109,6 +120,7 @@ Develop tickets {TICKET-1}, {TICKET-2} in order.
 
 Codex must verify:
 
+- Approval status allows development
 - Ticket scope
 - Target repository
 - Target repository `AGENTS.md`
@@ -127,6 +139,8 @@ Create a product repository proposal for {idea slug}. Do not create the reposito
 
 Codex must read:
 
+- `governance/approval-statuses.md`
+- `config/approval-statuses.yaml`
 - `repo-bootstrap/README.md`
 - `repo-bootstrap/product-repo-bootstrap.md`
 - `checklists/repo-bootstrap-checklist.md`
@@ -165,12 +179,14 @@ Expected outputs:
 ## Good Final Response Format
 
 ```text
+Approval status: {status}
+Allowed actions: {list}
+Blocked actions: {list}
 Route used: {stage -> workflow}
 Role used: {role}
 Skill used: {skill}
 Checklist used: {checklist}
 Artifacts changed: {files or drafts}
-Approval status: {status}
 Blockers: {if any}
 Next step: {specific next action}
 ```
