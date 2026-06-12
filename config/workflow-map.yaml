@@ -13,6 +13,10 @@ stages:
       - security_reviewer
     primary_skills:
       - skills/product-discovery/SKILL.md
+    supporting_skills:
+      - skills/growth-seo/SKILL.md
+      - skills/data-analytics/SKILL.md
+      - skills/security-review/SKILL.md
     required_inputs:
       - Raw idea
       - Target user if known
@@ -33,6 +37,9 @@ stages:
       - qa_developer
     primary_skills:
       - skills/prd-writing/SKILL.md
+    supporting_skills:
+      - skills/data-analytics/SKILL.md
+      - skills/qa-testing/SKILL.md
     required_inputs:
       - Discovery summary
       - Problem statement
@@ -55,6 +62,9 @@ stages:
       - architect
     primary_skills:
       - skills/ux-product-design/SKILL.md
+    supporting_skills:
+      - skills/qa-testing/SKILL.md
+      - skills/architecture/SKILL.md
     required_inputs:
       - PRD
       - Acceptance criteria
@@ -77,8 +87,16 @@ stages:
       - mobile_lead
       - security_reviewer
       - qa_developer
+      - data_analytics
     primary_skills:
       - skills/architecture/SKILL.md
+    supporting_skills:
+      - skills/security-review/SKILL.md
+      - skills/data-analytics/SKILL.md
+      - skills/backend-development/SKILL.md
+      - skills/web-development/SKILL.md
+      - skills/flutter-development/SKILL.md
+      - skills/qa-testing/SKILL.md
     required_inputs:
       - PRD
       - Design brief when UI exists
@@ -90,8 +108,6 @@ stages:
       - Technical risks
       - Development handoff
     next_stage: backlog
-    missing_dependencies:
-      - skills/architecture/SKILL.md
 
   backlog:
     workflow: workflows/architecture-to-backlog.md
@@ -104,6 +120,9 @@ stages:
       - relevant_developer_roles
     primary_skills:
       - skills/jira-backlog/SKILL.md
+    supporting_skills:
+      - skills/architecture/SKILL.md
+      - skills/qa-testing/SKILL.md
     required_inputs:
       - PRD
       - Architecture
@@ -131,6 +150,10 @@ stages:
       - skills/flutter-development/SKILL.md
       - skills/ios-development/SKILL.md
       - skills/android-development/SKILL.md
+    supporting_skills:
+      - skills/architecture/SKILL.md
+      - skills/security-review/SKILL.md
+      - skills/qa-testing/SKILL.md
     required_inputs:
       - Approved Jira issue or ticket draft
       - PRD
@@ -152,9 +175,12 @@ stages:
     supporting_roles:
       - automation_developer
       - implementing_developer
+      - security_reviewer
     primary_skills:
       - skills/qa-testing/SKILL.md
       - skills/automation-testing/SKILL.md
+    supporting_skills:
+      - skills/security-review/SKILL.md
     required_inputs:
       - Ticket scope
       - Implementation summary
@@ -179,6 +205,9 @@ stages:
       - data_analytics
     primary_skills:
       - skills/release-management/SKILL.md
+    supporting_skills:
+      - skills/security-review/SKILL.md
+      - skills/data-analytics/SKILL.md
     required_inputs:
       - QA results
       - Included tickets
@@ -204,6 +233,8 @@ stages:
     primary_skills:
       - skills/growth-seo/SKILL.md
       - skills/data-analytics/SKILL.md
+    supporting_skills:
+      - skills/web-development/SKILL.md
     required_inputs:
       - Release scope
       - Product goals
@@ -215,5 +246,3 @@ stages:
       - Metrics plan
       - Experiment backlog
     next_stage: learning_loop
-    missing_dependencies:
-      - skills/data-analytics/SKILL.md
