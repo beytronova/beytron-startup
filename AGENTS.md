@@ -7,21 +7,29 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 ## Mandatory Execution Order
 
 1. Identify the current stage: idea, discovery, PRD, design, architecture, backlog, repo-bootstrap, development, QA, release, or growth.
-2. Read `config/workflow-map.yaml` to route the request to the correct workflow.
-3. Read `config/role-skill-map.yaml` to select the responsible role and skill.
-4. Read `config/tool-access.yaml` before using GitHub, Jira, web search, Figma, or release systems.
-5. Read the matching file under `workflows/`.
-6. Read the responsible role from `roles/`.
-7. Read the matching `skills/*/SKILL.md` file.
-8. Use `templates/` for new artifacts.
-9. Use `handoffs/` when responsibility moves between roles.
-10. Use `checklists/` before moving an artifact to the next workflow stage.
-11. Use `examples/` when the request matches a known golden path.
-12. Use `playbooks/` before Jira or GitHub execution side effects.
-13. Use `repo-bootstrap/` before proposing or creating product repositories.
-14. Use `security/` for sensitive data, secrets, auth, compliance, mobile privacy, or release risk.
-15. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
-16. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
+2. Read `governance/approval-statuses.md` and `config/approval-statuses.yaml` to validate the approval status and allowed actions.
+3. Read `config/workflow-map.yaml` to route the request to the correct workflow.
+4. Read `config/role-skill-map.yaml` to select the responsible role and skill.
+5. Read `config/tool-access.yaml` before using GitHub, Jira, web search, Figma, or release systems.
+6. Read the matching file under `workflows/`.
+7. Read the responsible role from `roles/`.
+8. Read the matching `skills/*/SKILL.md` file.
+9. Use `templates/` for new artifacts.
+10. Use `handoffs/` when responsibility moves between roles.
+11. Use `checklists/` before moving an artifact to the next workflow stage.
+12. Use `examples/` when the request matches a known golden path.
+13. Use `playbooks/` before Jira or GitHub execution side effects.
+14. Use `repo-bootstrap/` before proposing or creating product repositories.
+15. Use `security/` for sensitive data, secrets, auth, compliance, mobile privacy, or release risk.
+16. Apply `governance/` before coding, QA sign-off, release, or risk acceptance.
+17. When changing this plugin, read `CONTRIBUTING.md`, `RELEASE_POLICY.md`, and `CHANGELOG.md` before editing release-impacting files.
+
+## Approval Status Source of Truth
+
+- `governance/approval-statuses.md` is the human-readable canonical policy.
+- `config/approval-statuses.yaml` is the machine-readable registry.
+- If another file conflicts with these approval definitions, the centralized approval status files win.
+- Every approval-sensitive response must state the approval status, allowed actions, blocked actions, required artifacts, and next valid statuses.
 
 ## Setup and Usage Guidance
 
@@ -31,6 +39,7 @@ Beytron Startup provides an agile AI delivery system for Codex. It does not own 
 
 ## Routing Registries
 
+- `config/approval-statuses.yaml`: maps approval statuses to allowed actions, blocked actions, required artifacts, and next statuses.
 - `config/workflow-map.yaml`: maps stages to workflows, approvals, roles, inputs, outputs, and next stages.
 - `config/role-skill-map.yaml`: maps roles to primary skills, supporting skills, workflows, and outputs.
 - `config/tool-access.yaml`: defines when external tools may be used and when side effects require approval.
@@ -63,7 +72,7 @@ Side effects require explicit approval or workflow permission. If approval is mi
 
 ## Repo Bootstrap
 
-Use `repo-bootstrap/` only after:
+Use `repo-bootstrap/` only after `governance/approval-statuses.md` confirms:
 
 ```text
 Approval Status = APPROVED_FOR_REPO_CREATION
@@ -108,7 +117,7 @@ When changing Beytron Startup itself:
 
 - Never move directly from idea to code.
 - Development requires PRD, architecture, approved ticket scope, explicit approval, and test impact.
-- Do not create real Jira issues, GitHub repositories, branches, pull requests, or releases unless the user explicitly asks and the workflow approval permits it.
+- Do not create real Jira issues, GitHub repositories, branches, pull requests, or releases unless the user explicitly asks and the centralized approval status policy permits it.
 - When working inside a product repository, obey that repository's own `AGENTS.md` before this plugin's generic rules.
 - Keep every output traceable to source artifacts: idea, discovery, PRD, design, architecture, tickets, tests, approval, security review, and release evidence.
 - Stop instead of guessing when approval, scope, testability, security, compliance, or release risk is unclear.
@@ -137,6 +146,8 @@ Use `config/role-skill-map.yaml` as the source of truth. If direct routing is im
 Every substantive output should include:
 
 - Source artifacts read
+- Approval status used
+- Allowed and blocked actions
 - Registry route used
 - Role used
 - Skill used
@@ -157,4 +168,4 @@ When changing the plugin itself, also include:
 
 ## Stop Conditions
 
-Stop when required inputs are missing, approval is unclear, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, compliance requirements are unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
+Stop when required inputs are missing, approval is unclear, approval status is unknown to `config/approval-statuses.yaml`, ticket scope is not documented, design or architecture is unresolved, checklist pass criteria are not met, tests cannot be defined, sensitive data risk is unknown, compliance requirements are unknown, release risk cannot be accepted explicitly, a required external tool side effect lacks approval, or a plugin release action lacks `Approval Status = APPROVED_FOR_RELEASE`.
