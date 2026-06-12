@@ -8,6 +8,25 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.1] - Centralized Approval Statuses
+
+### Added
+
+- Canonical approval status policy: `governance/approval-statuses.md`.
+- Machine-readable approval status registry: `config/approval-statuses.yaml`.
+
+### Changed
+
+- `AGENTS.md` now requires approval validation before workflow routing.
+- `README.md` now documents the approval layer and centralized source of truth.
+- `USAGE.md` now requires only canonical approval statuses and includes approval-aware final response format.
+- Plugin manifest version updated to `0.4.1`.
+
+### Operational Notes
+
+- Unknown approval statuses are blockers.
+- If any file conflicts with centralized approval definitions, `governance/approval-statuses.md` and `config/approval-statuses.yaml` win.
+
 ## [0.4.0] - Usage, Execution, Bootstrap, Validation, and Security Hardening
 
 ### Added
