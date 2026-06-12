@@ -14,6 +14,12 @@ Use when implementing approved web application scope.
 - Tailwind CSS, CSS Modules, styled-components, or the existing design system
 - shadcn/ui, Radix, MUI, Chakra, or existing component libraries when already present
 
+## Stack Deep Dives
+After detecting the stack, read the matching deep dive when present:
+
+- `skills/web-development/stacks/nextjs.md`
+- `skills/web-development/stacks/react-vite.md`
+
 ## Primary Languages
 - TypeScript for new application code
 - JavaScript only when the repository is already JavaScript-first
@@ -73,13 +79,15 @@ yarn build
 ## Protocol
 1. Verify `APPROVED_FOR_DEVELOPMENT`, ticket scope, PRD, architecture, and target repo.
 2. Detect stack, package manager, framework, routing, state, styling, and test patterns.
-3. Implement only approved scope.
-4. Cover relevant UI states and accessibility behavior.
-5. Run relevant checks or document why they could not run.
-6. Produce implementation summary and development-to-QA handoff.
+3. Read the matching stack deep dive if available.
+4. Implement only approved scope.
+5. Cover relevant UI states and accessibility behavior.
+6. Run relevant checks or document why they could not run.
+7. Produce implementation summary and development-to-QA handoff.
 
 ## Output Format
 - Stack detected
+- Stack deep dive used when applicable
 - Package manager detected
 - Implementation summary
 - Files changed
