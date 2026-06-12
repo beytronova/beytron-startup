@@ -33,11 +33,11 @@ roles:
 
   architect:
     role_file: roles/architect.md
-    primary_skill: null
-    missing_skill: skills/architecture/SKILL.md
+    primary_skill: skills/architecture/SKILL.md
     supporting_skills:
       - skills/backend-development/SKILL.md
       - skills/security-review/SKILL.md
+      - skills/data-analytics/SKILL.md
     primary_workflows:
       - workflows/prd-to-architecture.md
       - workflows/architecture-to-backlog.md
@@ -159,6 +159,8 @@ roles:
     primary_skill: skills/release-management/SKILL.md
     supporting_skills:
       - skills/github-delivery/SKILL.md
+      - skills/security-review/SKILL.md
+      - skills/data-analytics/SKILL.md
     primary_workflows:
       - workflows/qa-to-release.md
     outputs:
@@ -180,11 +182,12 @@ roles:
 
   data_analytics:
     role_file: roles/data-analytics.md
-    primary_skill: null
-    missing_skill: skills/data-analytics/SKILL.md
-    supporting_skills: []
+    primary_skill: skills/data-analytics/SKILL.md
+    supporting_skills:
+      - skills/growth-seo/SKILL.md
     primary_workflows:
       - workflows/release-to-growth.md
+      - workflows/discovery-to-prd.md
     outputs:
       - Metrics plan
       - Event tracking plan
@@ -192,11 +195,14 @@ roles:
 
   security_reviewer:
     role_file: roles/security-reviewer.md
-    primary_skill: null
-    missing_skill: skills/security-review/SKILL.md
-    supporting_skills: []
+    primary_skill: skills/security-review/SKILL.md
+    supporting_skills:
+      - skills/architecture/SKILL.md
+      - skills/backend-development/SKILL.md
+      - skills/release-management/SKILL.md
     primary_workflows:
       - workflows/prd-to-architecture.md
+      - workflows/backlog-to-development.md
       - workflows/qa-to-release.md
     outputs:
       - Security review
