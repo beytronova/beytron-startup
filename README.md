@@ -2,7 +2,7 @@
 
 Beytron Startup is a Codex plugin blueprint for running an agile AI delivery organization across product repositories.
 
-It defines reusable roles, workflows, skills, routing registries, handoffs, templates, checklists, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
+It defines reusable roles, workflows, skills, routing registries, handoffs, templates, checklists, examples, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
 
 ## Purpose
 
@@ -25,6 +25,7 @@ skills/
 handoffs/
 templates/
 checklists/
+examples/
 governance/
 ```
 
@@ -54,6 +55,18 @@ The `checklists/` directory turns governance into practical gates:
 - Development handoff must pass before QA.
 - QA and release checklists must pass before release execution.
 
+## Example Layer
+
+The `examples/` directory provides golden paths Codex can imitate for common delivery situations:
+
+- Idea to release
+- Jira ticket to pull request
+- Mobile feature delivery
+- Backend API delivery
+- Growth experiment planning
+
+Examples do not replace governance. They show the expected order of routing, role selection, skill usage, checklist validation, outputs, and stop conditions.
+
 ## How To Use
 
 1. Start with the current stage or user intent.
@@ -61,10 +74,11 @@ The `checklists/` directory turns governance into practical gates:
 3. Read `config/role-skill-map.yaml` to select role and skill.
 4. Read `config/tool-access.yaml` before using external tools.
 5. Read the selected workflow, role, and skill files.
-6. Use templates for produced artifacts.
-7. Use handoff files when responsibility moves between roles.
-8. Use checklists before moving to the next workflow stage.
-9. Apply governance files before development, QA, release, or risk acceptance.
+6. Read a matching golden path under `examples/` when the request matches a known scenario.
+7. Use templates for produced artifacts.
+8. Use handoff files when responsibility moves between roles.
+9. Use checklists before moving to the next workflow stage.
+10. Apply governance files before development, QA, release, or risk acceptance.
 
 ## Required Operating Rules
 
@@ -80,4 +94,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.3.0` now includes routing, core skills, integration contracts, and validation checklists. Upcoming phases add stack deep dives, examples/golden paths, and versioning/release discipline.
+Version `0.3.0` now includes routing, core skills, integration contracts, validation checklists, stack deep dives, and golden path examples. Upcoming phases add versioning and release discipline.
