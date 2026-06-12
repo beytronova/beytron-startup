@@ -14,6 +14,12 @@ Use when implementing approved backend services, APIs, data models, integrations
 - PostgreSQL, MySQL, SQLite, MongoDB, Redis, or repository-defined data stores
 - Prisma, TypeORM, Sequelize, SQLAlchemy, Alembic, Django migrations, or existing migration system
 
+## Stack Deep Dives
+After detecting the stack, read the matching deep dive when present:
+
+- `skills/backend-development/stacks/nestjs.md`
+- `skills/backend-development/stacks/fastapi.md`
+
 ## Primary Languages
 - TypeScript for Node.js backend code when possible
 - JavaScript only in JavaScript-first repositories
@@ -78,13 +84,15 @@ prisma migrate deploy
 ## Protocol
 1. Verify `APPROVED_FOR_DEVELOPMENT`, ticket scope, PRD, architecture, and target repo.
 2. Detect framework, language, package manager, database, migration tool, and test commands.
-3. Confirm API/data contracts, auth/authz rules, validation rules, and migration impact.
-4. Implement only approved API, service, data, integration, or job scope.
-5. Add or update tests and migration notes where relevant.
-6. Document release, rollback, observability, and QA impact.
+3. Read the matching stack deep dive if available.
+4. Confirm API/data contracts, auth/authz rules, validation rules, and migration impact.
+5. Implement only approved API, service, data, integration, or job scope.
+6. Add or update tests and migration notes where relevant.
+7. Document release, rollback, observability, and QA impact.
 
 ## Output Format
 - Stack detected
+- Stack deep dive used when applicable
 - API/data contract summary
 - Implementation summary
 - Files changed
