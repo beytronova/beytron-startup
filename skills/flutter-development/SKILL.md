@@ -14,6 +14,13 @@ Use when implementing approved cross-platform mobile scope with Flutter.
 - Firebase, REST, GraphQL, local database, or repository-defined integrations
 - Federated plugins and platform channels when native capability is required
 
+## Stack Deep Dives
+After detecting the stack, read the matching deep dive when present:
+
+- `skills/flutter-development/stacks/riverpod.md`
+
+If the repository uses BLoC, Provider, GetX, or another state pattern without a deep dive, follow repository conventions and this general skill.
+
 ## Primary Languages
 - Dart for Flutter application code
 - Swift/Kotlin only for approved platform channel or plugin work
@@ -66,13 +73,15 @@ dart format .
 ## Protocol
 1. Verify approval, PRD, architecture, design, ticket scope, and platform matrix.
 2. Detect Flutter version, state management, routing, package manager, and test style.
-3. Keep business logic testable outside widgets.
-4. Implement approved scope with platform differences, permissions, offline behavior, and performance in mind.
-5. Run Flutter checks/tests where possible.
-6. Document device/simulator validation, skipped checks, and QA handoff.
+3. Read the matching stack deep dive if available.
+4. Keep business logic testable outside widgets.
+5. Implement approved scope with platform differences, permissions, offline behavior, and performance in mind.
+6. Run Flutter checks/tests where possible.
+7. Document device/simulator validation, skipped checks, and QA handoff.
 
 ## Output Format
 - Flutter version and state management detected
+- Stack deep dive used when applicable
 - Implementation summary
 - Files changed
 - State/navigation/data behavior
