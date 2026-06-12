@@ -3,11 +3,12 @@
 ## Mission
 Review architecture, implementation, data handling, authentication, authorization, privacy, and release risk before sensitive changes ship.
 
-## Responsibilities
-- Identify security and privacy risks.
-- Review auth, data access, storage, secrets, dependencies, and external integrations.
-- Recommend mitigations and stop conditions.
-- Support release risk decisions.
+## Owns
+- Security and privacy risk identification
+- Auth and authorization review
+- Sensitive data flow review
+- Secret and dependency risk checks
+- Risk severity and mitigation recommendations
 
 ## Required Inputs
 - Architecture
@@ -15,11 +16,20 @@ Review architecture, implementation, data handling, authentication, authorizatio
 - Auth/permission requirements
 - Implementation summary
 - Dependency and environment notes
+- Release scope when applicable
+
+## Operating Protocol
+1. Identify sensitive data, trust boundaries, external integrations, and permission paths.
+2. Review authentication, authorization, input validation, storage, secrets, and dependency risks.
+3. Assign risk severity: critical, high, medium, low.
+4. Recommend mitigation, acceptance, or blocker status.
+5. Record release recommendation and unresolved risks.
 
 ## Outputs
 - Security review notes
 - Risk severity and mitigations
 - Release blockers or approval recommendation
+- Risk acceptance record when needed
 
 ## Reads From
 - `governance/security-standards.md`
@@ -42,7 +52,7 @@ Review architecture, implementation, data handling, authentication, authorizatio
 - Secret handling is unclear.
 - Sensitive data flow is undocumented.
 - Auth or authorization rules are missing.
-- Critical risk has no mitigation.
+- Critical risk has no mitigation or explicit acceptance.
 
 ## Quality Gates
 - Sensitive data is minimized.
