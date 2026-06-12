@@ -2,7 +2,7 @@
 
 Beytron Startup is a Codex plugin blueprint for running an agile AI delivery organization across product repositories.
 
-It defines reusable roles, workflows, skills, routing registries, handoffs, templates, checklists, examples, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
+It defines reusable roles, workflows, skills, routing registries, handoffs, templates, checklists, examples, release discipline, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
 
 ## Purpose
 
@@ -18,6 +18,9 @@ It defines reusable roles, workflows, skills, routing registries, handoffs, temp
 .codex-plugin/plugin.json
 AGENTS.md
 README.md
+CHANGELOG.md
+CONTRIBUTING.md
+RELEASE_POLICY.md
 config/
 roles/
 workflows/
@@ -67,6 +70,22 @@ The `examples/` directory provides golden paths Codex can imitate for common del
 
 Examples do not replace governance. They show the expected order of routing, role selection, skill usage, checklist validation, outputs, and stop conditions.
 
+## Release Discipline Layer
+
+The root release files define how this plugin evolves:
+
+- `CHANGELOG.md` records user-visible changes by version.
+- `RELEASE_POLICY.md` defines semantic versioning, release gates, approval, release notes, and rollback rules.
+- `CONTRIBUTING.md` defines how to safely add or change roles, skills, workflows, integrations, templates, checklists, examples, and governance.
+
+Publishing a plugin release requires:
+
+```text
+Approval Status = APPROVED_FOR_RELEASE
+```
+
+Without release approval, Codex may prepare release artifacts but must not publish tags, GitHub releases, packages, or marketplace submissions.
+
 ## How To Use
 
 1. Start with the current stage or user intent.
@@ -79,6 +98,7 @@ Examples do not replace governance. They show the expected order of routing, rol
 8. Use handoff files when responsibility moves between roles.
 9. Use checklists before moving to the next workflow stage.
 10. Apply governance files before development, QA, release, or risk acceptance.
+11. Apply `RELEASE_POLICY.md` and update `CHANGELOG.md` when changing the plugin itself.
 
 ## Required Operating Rules
 
@@ -87,6 +107,7 @@ Examples do not replace governance. They show the expected order of routing, rol
 - Jira issue creation requires explicit approval unless the user asks for it directly.
 - GitHub branches, PRs, and repo changes must preserve the target repository's own `AGENTS.md` instructions.
 - Release requires QA evidence, known-risk review, rollback plan, and release approval.
+- Plugin changes require changelog and version impact review.
 
 ## Role Model
 
@@ -94,4 +115,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.3.0` now includes routing, core skills, integration contracts, validation checklists, stack deep dives, and golden path examples. Upcoming phases add versioning and release discipline.
+Version `0.3.0` now includes routing, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, changelog, contribution guide, and release policy.
