@@ -2,7 +2,7 @@
 
 Beytron Startup is a Codex plugin blueprint for running an agile AI delivery organization across product repositories.
 
-It defines reusable roles, workflows, skills, handoffs, templates, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
+It defines reusable roles, workflows, skills, routing registries, handoffs, templates, and governance rules so Codex can move a project from idea to delivery with traceable decisions, explicit approvals, and quality gates.
 
 ## Purpose
 
@@ -17,6 +17,8 @@ It defines reusable roles, workflows, skills, handoffs, templates, and governanc
 ```text
 .codex-plugin/plugin.json
 AGENTS.md
+README.md
+config/
 roles/
 workflows/
 skills/
@@ -31,19 +33,31 @@ governance/
 Idea -> Discovery -> PRD -> Design -> Architecture -> Backlog -> Development -> QA -> Release -> Growth
 ```
 
+## Routing Layer
+
+Version `0.3.0` introduces the first routing foundation:
+
+- `config/workflow-map.yaml` maps stages to workflows, approvals, roles, inputs, outputs, and next stages.
+- `config/role-skill-map.yaml` maps roles to primary skills, supporting skills, workflows, and expected outputs.
+- `config/tool-access.yaml` defines when GitHub, Jira, web search, Figma, and release systems may be used.
+
+These files are the first place Codex should look when deciding what to do next.
+
 ## How To Use
 
-1. Start with the workflow that matches the current stage.
-2. Select the role responsible for the next output.
-3. Read the matching skill for execution rules.
-4. Use templates for produced artifacts.
-5. Use handoff files when responsibility moves between roles.
-6. Apply governance files before development, QA, release, or risk acceptance.
+1. Start with the current stage or user intent.
+2. Read `config/workflow-map.yaml` to route the request.
+3. Read `config/role-skill-map.yaml` to select role and skill.
+4. Read `config/tool-access.yaml` before using external tools.
+5. Read the selected workflow, role, and skill files.
+6. Use templates for produced artifacts.
+7. Use handoff files when responsibility moves between roles.
+8. Apply governance files before development, QA, release, or risk acceptance.
 
 ## Required Operating Rules
 
 - Do not code directly from an idea.
-- Development requires approved scope, PRD, architecture, ticket reference, and test impact.
+- Development requires approved scope, PRD, architecture, ticket reference, target repository, and test impact.
 - Jira issue creation requires explicit approval unless the user asks for it directly.
 - GitHub branches, PRs, and repo changes must preserve the target repository's own `AGENTS.md` instructions.
 - Release requires QA evidence, known-risk review, rollback plan, and release approval.
@@ -54,4 +68,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.2.0` is an operational scaffold. It is ready to guide Codex work, and can be extended with MCP servers, connector-specific tools, richer role packs, and company-specific policies.
+Version `0.3.0` is the routing foundation phase. It is ready to guide Codex work through central registries, and it intentionally records missing next-phase dependencies such as architecture, data analytics, security review, integration docs, checklists, examples, and changelog.
