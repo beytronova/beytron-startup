@@ -1,0 +1,212 @@
+approval_statuses:
+  WAITING:
+    purpose: Default state for new ideas, incomplete requests, and unapproved work.
+    allowed_actions:
+      - ask_clarifying_questions
+      - summarize_information
+      - draft_non_executed_plan
+      - identify_missing_artifacts
+    blocked_actions:
+      - research_execution
+      - jira_issue_creation
+      - github_repository_creation
+      - branch_creation
+      - commit_creation
+      - pull_request_creation
+      - product_code_development
+      - release_publishing
+    required_artifacts: []
+    next_statuses:
+      - APPROVED_FOR_RESEARCH
+      - REJECTED
+
+  APPROVED_FOR_RESEARCH:
+    purpose: Allows discovery, research, PRD, architecture, design planning, ticket drafting, and non-executed planning artifacts.
+    allowed_actions:
+      - research
+      - discovery_artifact
+      - prd_draft
+      - design_brief
+      - architecture_draft
+      - jira_ticket_drafts
+      - risk_analysis
+      - security_review_draft
+    blocked_actions:
+      - real_jira_issue_creation
+      - product_repository_creation
+      - product_code_development
+      - branch_creation
+      - commit_creation
+      - pull_request_creation
+      - release_publishing
+    required_artifacts:
+      - raw_idea_or_source_request
+      - scope_assumptions
+      - research_or_artifact_goal
+    next_statuses:
+      - APPROVED_FOR_JIRA_CREATION
+      - APPROVED_FOR_REPO_CREATION
+      - APPROVED_FOR_DEVELOPMENT
+      - REJECTED
+
+  APPROVED_FOR_JIRA_CREATION:
+    purpose: Allows approved ticket drafts to become real Jira issues.
+    allowed_actions:
+      - create_jira_epic
+      - create_jira_story
+      - create_jira_task
+      - create_jira_bug
+      - create_jira_subtask
+      - add_jira_labels_components_priority
+      - link_jira_to_source_artifacts
+    blocked_actions:
+      - product_repository_creation_without_repo_approval
+      - product_code_development
+      - branch_creation_without_development_approval
+      - commit_creation_without_development_approval
+      - pull_request_creation_without_development_approval
+      - release_publishing
+    required_artifacts:
+      - approved_ticket_drafts
+      - jira_project_key
+      - issue_type_mapping
+      - acceptance_criteria
+    next_statuses:
+      - APPROVED_FOR_REPO_CREATION
+      - APPROVED_FOR_DEVELOPMENT
+      - REJECTED
+
+  APPROVED_FOR_REPO_CREATION:
+    purpose: Allows approved idea to become product repository proposal or repository creation action.
+    allowed_actions:
+      - prepare_product_repository_bootstrap_proposal
+      - create_product_repository_when_explicitly_requested
+      - add_initial_documentation_files
+      - link_source_artifacts
+    blocked_actions:
+      - product_code_development
+      - implementation_branch_creation
+      - implementation_pull_request_creation
+      - release_publishing
+    required_artifacts:
+      - approved_idea
+      - prd
+      - architecture
+      - ticket_drafts_or_backlog_plan
+      - repository_owner_name_visibility
+      - repo_bootstrap_checklist_pass
+    next_statuses:
+      - APPROVED_FOR_DEVELOPMENT
+      - REJECTED
+
+  APPROVED_FOR_DEVELOPMENT:
+    purpose: Allows approved implementation work inside the target product repository.
+    allowed_actions:
+      - read_jira_tickets
+      - read_source_artifacts
+      - create_or_use_development_branch
+      - implement_approved_ticket_scope
+      - add_or_update_tests
+      - commit_changes_when_permitted
+      - open_draft_pr_when_permitted
+      - prepare_qa_handoff
+    blocked_actions:
+      - scope_expansion_beyond_approved_tickets
+      - product_repository_creation_without_repo_approval
+      - release_publishing
+      - security_risk_acceptance_without_approval
+    required_artifacts:
+      - approved_jira_ticket_or_task
+      - prd_reference_or_explicit_waiver
+      - architecture_reference_or_explicit_waiver
+      - target_product_repository
+      - target_repository_agents_read
+      - test_approach
+    next_statuses:
+      - APPROVED_FOR_RELEASE_PREPARATION
+      - APPROVED_FOR_SECURITY_RISK_ACCEPTANCE
+      - REJECTED
+
+  APPROVED_FOR_RELEASE_PREPARATION:
+    purpose: Allows release artifacts to be prepared without publishing.
+    allowed_actions:
+      - prepare_release_notes
+      - prepare_rollback_plan
+      - prepare_monitoring_plan
+      - prepare_release_checklist
+      - summarize_qa_evidence_and_known_risks
+    blocked_actions:
+      - release_publishing
+      - tag_creation
+      - marketplace_publication
+      - package_publication
+      - production_deployment
+    required_artifacts:
+      - qa_evidence
+      - known_risks
+      - rollback_plan_draft
+      - release_scope
+    next_statuses:
+      - APPROVED_FOR_RELEASE
+      - APPROVED_FOR_SECURITY_RISK_ACCEPTANCE
+      - REJECTED
+
+  APPROVED_FOR_RELEASE:
+    purpose: Allows release execution or publication when release gates pass.
+    allowed_actions:
+      - publish_release_when_permitted
+      - create_release_tags_when_approved
+      - create_github_release_when_approved
+      - add_deployment_evidence
+      - transition_release_tickets_when_approved
+    blocked_actions:
+      - release_with_failed_qa_gate_without_risk_acceptance
+      - release_with_critical_security_blockers
+      - release_scope_not_in_approved_plan
+    required_artifacts:
+      - release_checklist_pass
+      - qa_evidence
+      - rollback_plan
+      - monitoring_plan
+      - known_risk_review
+    next_statuses:
+      - APPROVED_FOR_SECURITY_RISK_ACCEPTANCE
+      - REJECTED
+
+  APPROVED_FOR_SECURITY_RISK_ACCEPTANCE:
+    purpose: Allows explicitly documented residual security risk to be accepted by the owner.
+    allowed_actions:
+      - record_residual_risk_acceptance
+      - proceed_only_for_accepted_scope
+      - document_mitigation_followups
+    blocked_actions:
+      - blanket_unknown_risk_acceptance
+      - acceptance_without_owner_approval
+      - acceptance_outside_documented_scope
+      - secret_exposure_without_rotation_or_remediation
+    required_artifacts:
+      - threat_model_or_security_review
+      - data_classification
+      - risk_description
+      - mitigation_options
+      - owner_approval
+    next_statuses:
+      - APPROVED_FOR_DEVELOPMENT
+      - APPROVED_FOR_RELEASE_PREPARATION
+      - APPROVED_FOR_RELEASE
+      - REJECTED
+
+  REJECTED:
+    purpose: Stops the workflow.
+    allowed_actions:
+      - summarize_rejection
+      - archive_or_mark_rejected_artifacts
+      - suggest_reopen_requirements
+    blocked_actions:
+      - research_execution
+      - jira_issue_creation
+      - repository_creation
+      - product_code_development
+      - release_publishing
+    required_artifacts: []
+    next_statuses: []
