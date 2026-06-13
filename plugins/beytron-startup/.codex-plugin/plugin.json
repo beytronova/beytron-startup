@@ -1,7 +1,7 @@
 {
   "name": "beytron-startup",
-  "version": "0.4.7",
-  "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, and mobile hardening for startup product development.",
+  "version": "0.4.9",
+  "description": "Agile AI delivery system for startup product development with roles, skills, workflows, approval gates, Jira/GitHub playbooks, repo bootstrap, validation, security, and mobile delivery guidance.",
   "author": {
     "name": "Beytronova",
     "url": "https://github.com/beytronova"
@@ -23,7 +23,7 @@
   "interface": {
     "displayName": "Beytron Startup",
     "shortDescription": "Agile AI delivery system for startup product development",
-    "longDescription": "Beytron Startup provides an installable marketplace wrapper for AI-readable roles, workflows, approval gates, Jira/GitHub delivery playbooks, repo bootstrap guidance, validation scenarios, and mobile development hardening.",
+    "longDescription": "Beytron Startup helps teams route an idea through discovery, PRD, design, architecture, Jira backlog, development, QA, release, and growth with explicit approval gates and role-based execution. Use it to coordinate product, design, architecture, web, mobile, backend, QA, automation, release, growth, Jira, and GitHub delivery workflows.",
     "developerName": "Beytronova",
     "category": "Productivity",
     "capabilities": [
@@ -31,12 +31,14 @@
       "Write"
     ],
     "websiteURL": "https://github.com/beytronova/beytron-startup",
+    "privacyPolicyURL": "https://github.com/beytronova/beytron-startup/blob/main/SECURITY.md",
+    "termsOfServiceURL": "https://github.com/beytronova/beytron-startup/blob/main/LICENSE",
     "defaultPrompt": [
       "Use Beytron Startup to route this idea from discovery to PRD",
       "Use Beytron Startup to turn approved Jira tickets into a development plan",
       "Use Beytron Startup to review a mobile feature workflow"
     ],
-    "brandColor": "#111827",
+    "brandColor": "#7C3AED",
     "screenshots": []
   }
 }
