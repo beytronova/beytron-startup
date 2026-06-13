@@ -8,6 +8,30 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.9] - Visible Marketplace Skills and Metadata
+
+### Added
+
+- YAML frontmatter metadata to the marketplace entry skill at `plugins/beytron-startup/skills/beytron-startup/SKILL.md`.
+- Visible marketplace skills:
+  - `product-discovery`
+  - `agile-workflow`
+  - `jira-github-delivery`
+  - `mobile-delivery`
+  - `web-backend-delivery`
+  - `qa-release-governance`
+
+### Changed
+
+- Plugin manifest metadata now includes richer long description, privacy policy URL, terms URL, and updated brand color.
+- Root and marketplace wrapper plugin manifests now use version `0.4.9`.
+- `INSTALL.md` now explains that visible marketplace skills require `skills/*/SKILL.md` files with YAML frontmatter.
+
+### Operational Notes
+
+- The Codex marketplace UI displays skills only when they are inside the installed plugin path and have valid skill metadata.
+- Root repository `skills/` are part of the full operating model, but marketplace UI lists the installed wrapper skills under `plugins/beytron-startup/skills/`.
+
 ## [0.4.8] - Codex Marketplace Root Manifest
 
 ### Added
