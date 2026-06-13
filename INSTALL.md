@@ -1,6 +1,6 @@
 # Installation
 
-This guide explains how to add Beytron Startup to a Codex environment as an operating plugin repository.
+This guide explains how to add Beytron Startup to a Codex environment.
 
 ## Repository
 
@@ -24,6 +24,39 @@ Use it to guide:
 - Release planning
 - Growth and analytics follow-up
 
+## Add Through Codex Plugin Marketplace Dialog
+
+If you are using Codex's **Add plugin marketplace** dialog, use:
+
+```text
+Source:
+beytronova/beytron-startup
+
+Git ref:
+main
+
+Sparse paths:
+plugins/codex
+```
+
+This works because the marketplace-compatible plugin manifest lives at:
+
+```text
+plugins/codex/.codex-plugin/plugin.json
+```
+
+Do not use a GitHub blob URL to `plugin.json` as the source.
+
+## Root Plugin Manifest
+
+The repository also keeps a root plugin manifest at:
+
+```text
+.codex-plugin/plugin.json
+```
+
+Use the root manifest only in environments that support adding a repository directly as a plugin source without marketplace sparse paths.
+
 ## Prerequisites
 
 Before using the plugin, ensure Codex can access:
@@ -35,26 +68,18 @@ Before using the plugin, ensure Codex can access:
 - Figma or design source when design work is requested
 - Web search when research is requested
 
-## Installation Model
-
-Use this repository as a Codex plugin source when the Codex environment supports repository-backed plugins.
-
-The plugin manifest is located at:
-
-```text
-.codex-plugin/plugin.json
-```
-
 ## First Read Order
 
 When Codex starts work using this plugin, it should read:
 
 1. `AGENTS.md`
 2. `README.md`
-3. `config/workflow-map.yaml`
-4. `config/role-skill-map.yaml`
-5. `config/tool-access.yaml`
-6. The matching workflow, role, skill, checklist, and example files
+3. `governance/approval-statuses.md`
+4. `config/approval-statuses.yaml`
+5. `config/workflow-map.yaml`
+6. `config/role-skill-map.yaml`
+7. `config/tool-access.yaml`
+8. The matching workflow, role, skill, checklist, and example files
 
 ## Verification After Installation
 
@@ -68,20 +93,21 @@ Expected behavior:
 
 - Codex should not jump directly to code.
 - Codex should mention discovery, PRD, design, architecture, backlog, approval, development, QA, release, and growth.
-- Codex should reference routing registries, role/skill selection, checklists, governance, and examples.
+- Codex should reference approval statuses, routing registries, role/skill selection, checklists, governance, and examples.
 
 ## Common Setup Issues
 
 If Codex does not follow the plugin:
 
 - Confirm the repository is accessible.
-- Confirm `.codex-plugin/plugin.json` exists.
-- Confirm `AGENTS.md` is read before task execution.
+- For marketplace installation, confirm `plugins/codex` is used as Sparse paths.
+- Confirm `plugins/codex/.codex-plugin/plugin.json` exists.
+- Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
 - Confirm target product repositories also have their own `AGENTS.md`.
 
 ## Safe Start Prompt
 
 ```text
-Use Beytron Startup. Route this request through the correct workflow, role, skill, checklist, and example before taking action: {request}
+Use Beytron Startup. Route this request through the correct approval status, workflow, role, skill, checklist, and example before taking action: {request}
 ```
