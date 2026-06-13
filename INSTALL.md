@@ -26,20 +26,7 @@ Use it to guide:
 
 ## Add Through Codex Plugin Marketplace Dialog
 
-If you are using Codex's **Add plugin marketplace** dialog, use:
-
-```text
-Source:
-beytronova/beytron-startup
-
-Git ref:
-main
-
-Sparse paths:
-plugins/codex
-```
-
-If the shorthand source still resolves to an invalid marketplace file, retry with the full Git URL:
+If you are using Codex's **Add plugin marketplace** dialog, use the named marketplace wrapper:
 
 ```text
 Source:
@@ -49,18 +36,35 @@ Git ref:
 main
 
 Sparse paths:
-plugins/codex
+plugins/beytron-startup
 ```
 
 This works because the marketplace-compatible plugin manifest lives at:
 
 ```text
-plugins/codex/.codex-plugin/plugin.json
+plugins/beytron-startup/.codex-plugin/plugin.json
+```
+
+With the sparse path applied, `plugins/beytron-startup` becomes the marketplace root and exposes:
+
+```text
+.codex-plugin/plugin.json
+skills/
 ```
 
 The manifest uses the supported Codex plugin schema with `name`, `version`, `description`, `author`, `homepage`, `repository`, `license`, `keywords`, `skills`, and `interface` fields.
 
 Do not use a GitHub blob URL to `plugin.json` as the source.
+
+## Legacy Wrapper
+
+The older wrapper remains available at:
+
+```text
+plugins/codex
+```
+
+Prefer `plugins/beytron-startup` for new installs because its folder name matches the plugin name and avoids ambiguity with Codex's own product name.
 
 ## Root Plugin Manifest
 
@@ -115,9 +119,9 @@ Expected behavior:
 If Codex does not follow the plugin:
 
 - Confirm the repository is accessible.
-- For marketplace installation, confirm `plugins/codex` is used as Sparse paths.
-- Confirm `plugins/codex/.codex-plugin/plugin.json` exists.
-- Confirm the marketplace manifest version is `0.4.6` or newer.
+- For marketplace installation, confirm `plugins/beytron-startup` is used as Sparse paths.
+- Confirm `plugins/beytron-startup/.codex-plugin/plugin.json` exists.
+- Confirm the marketplace manifest version is `0.4.7` or newer.
 - Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
 - Confirm target product repositories also have their own `AGENTS.md`.
