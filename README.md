@@ -15,7 +15,10 @@ It defines reusable roles, workflows, skills, routing registries, handoffs, temp
 ## Structure
 
 ```text
+.agents/plugins/marketplace.json
 .codex-plugin/plugin.json
+plugins/beytron-startup/.codex-plugin/plugin.json
+plugins/beytron-startup/skills/beytron-startup/SKILL.md
 AGENTS.md
 README.md
 INSTALL.md
@@ -195,4 +198,4 @@ Each role defines mission, ownership, required inputs, workflow protocol, artifa
 
 ## Plugin Status
 
-Version `0.4.1` includes routing, centralized approval statuses, role creation rules, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
+Version `0.4.8` includes the Codex marketplace root manifest, named plugin wrapper, routing, centralized approval statuses, role creation rules, core skills, integration contracts, validation checklists, stack deep dives, golden path examples, installation and usage guides, Jira/GitHub execution playbooks, repo bootstrap, validation scenarios, security hardening, changelog, contribution guide, and release policy.
