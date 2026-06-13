@@ -8,6 +8,42 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.5.0] - Full Marketplace Skill Catalog
+
+### Added
+
+- Full Beytron marketplace skill catalog under `plugins/beytron-startup/skills/`:
+  - `governance-approval`
+  - `product-discovery`
+  - `prd-writing`
+  - `ux-product-design`
+  - `architecture`
+  - `jira-backlog`
+  - `github-delivery`
+  - `web-development`
+  - `backend-development`
+  - `flutter-development`
+  - `ios-development`
+  - `android-development`
+  - `qa-testing`
+  - `automation-testing`
+  - `release-management`
+  - `growth-seo`
+  - `data-analytics`
+  - `security-review`
+  - `repo-bootstrap`
+
+### Changed
+
+- Marketplace plugin manifest now describes Beytron Startup as a full agile AI delivery organization, not a shallow wrapper.
+- Root plugin manifest and marketplace wrapper manifest now use version `0.5.0`.
+- `INSTALL.md` now lists the visible marketplace skill catalog.
+
+### Operational Notes
+
+- The marketplace wrapper now reflects the real Beytron role and skill system: product, PRD, UX, architecture, Jira, GitHub, web, backend, Flutter, iOS, Android, QA, automation, release, growth, analytics, security, governance, and repo bootstrap.
+- The root `skills/` directory remains the deeper operating model; the wrapper skills expose installable marketplace skill cards and routing entry points.
+
 ## [0.4.9] - Visible Marketplace Skills and Metadata
 
 ### Added
