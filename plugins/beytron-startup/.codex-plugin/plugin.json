@@ -1,7 +1,7 @@
 {
   "name": "beytron-startup",
-  "version": "0.4.9",
-  "description": "Agile AI delivery system for startup product development with roles, skills, workflows, approval gates, Jira/GitHub playbooks, repo bootstrap, validation, security, and mobile delivery guidance.",
+  "version": "0.5.0",
+  "description": "Enterprise-grade agile AI delivery system for startup product development with product, design, architecture, web, backend, mobile, QA, automation, release, growth, analytics, security, Jira, GitHub, governance, and repo bootstrap skills.",
   "author": {
     "name": "Beytronova",
     "url": "https://github.com/beytronova"
@@ -15,15 +15,19 @@
     "codex",
     "agents",
     "product-development",
+    "software-delivery",
     "mobile-development",
-    "github",
-    "jira"
+    "web-development",
+    "backend-development",
+    "qa",
+    "jira",
+    "github"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Beytron Startup",
-    "shortDescription": "Agile AI delivery system for startup product development",
-    "longDescription": "Beytron Startup helps teams route an idea through discovery, PRD, design, architecture, Jira backlog, development, QA, release, and growth with explicit approval gates and role-based execution. Use it to coordinate product, design, architecture, web, mobile, backend, QA, automation, release, growth, Jira, and GitHub delivery workflows.",
+    "shortDescription": "Agile AI delivery organization for product teams",
+    "longDescription": "Beytron Startup models a full agile product organization as Codex-readable roles, skills, workflows, approval gates, handoffs, templates, checklists, and execution playbooks. It routes ideas through discovery, PRD, UX design, architecture, Jira backlog, GitHub delivery, web/backend/mobile development, QA automation, release management, growth, analytics, security review, and repository bootstrap without skipping approval gates.",
     "developerName": "Beytronova",
     "category": "Productivity",
     "capabilities": [
@@ -34,9 +38,9 @@
     "privacyPolicyURL": "https://github.com/beytronova/beytron-startup/blob/main/SECURITY.md",
     "termsOfServiceURL": "https://github.com/beytronova/beytron-startup/blob/main/LICENSE",
     "defaultPrompt": [
-      "Use Beytron Startup to route this idea from discovery to PRD",
-      "Use Beytron Startup to turn approved Jira tickets into a development plan",
-      "Use Beytron Startup to review a mobile feature workflow"
+      "Use Beytron Startup to turn this idea into discovery, PRD, architecture, and Jira-ready tickets",
+      "Use Beytron Startup to route this approved ticket through the right developer, QA, and release workflow",
+      "Use Beytron Startup to review this project with product, architecture, security, and delivery governance"
     ],
     "brandColor": "#7C3AED",
     "screenshots": []
