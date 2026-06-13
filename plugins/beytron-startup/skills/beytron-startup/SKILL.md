@@ -1,3 +1,8 @@
+---
+name: beytron-startup
+description: Route startup product work through Beytron Startup roles, approval statuses, workflows, skills, checklists, Jira/GitHub playbooks, and governance before taking action.
+---
+
 # Beytron Startup
 
 Use this skill when the user asks to use Beytron Startup, Beytronova startup system, agile AI delivery roles, product-to-development workflow, idea-to-PRD flow, Jira/GitHub delivery, mobile development roles, or plugin governance.
@@ -15,7 +20,7 @@ This marketplace wrapper exists so Codex can install Beytron Startup through the
 ```text
 Source: https://github.com/beytronova/beytron-startup.git
 Git ref: main
-Sparse paths: plugins/beytron-startup
+Sparse paths: empty
 ```
 
 ## Mandatory Operating Order
