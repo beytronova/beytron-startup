@@ -8,6 +8,22 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.6] - Supported Marketplace Manifest Schema
+
+### Changed
+
+- Root plugin manifest now uses the supported Codex marketplace schema with `author`, `homepage`, `repository`, `license`, `keywords`, `skills`, and `interface` metadata.
+- Marketplace wrapper manifest at `plugins/codex/.codex-plugin/plugin.json` now uses the same supported schema.
+- `INSTALL.md` now documents a full Git URL fallback for Codex's **Add plugin marketplace** dialog.
+
+### Operational Notes
+
+- This fixes installation attempts where the sparse path existed but Codex still reported that the marketplace root did not contain a supported manifest.
+- Recommended marketplace settings remain:
+  - Source: `beytronova/beytron-startup` or `https://github.com/beytronova/beytron-startup.git`
+  - Git ref: `main`
+  - Sparse paths: `plugins/codex`
+
 ## [0.4.5] - Marketplace Installation Wrapper
 
 ### Added
