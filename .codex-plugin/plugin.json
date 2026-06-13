@@ -1,8 +1,42 @@
 {
   "name": "beytron-startup",
-  "displayName": "Beytron Startup",
+  "version": "0.4.6",
   "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, Flutter Android and iOS hardening, marketplace wrapper, and governance for startup product development.",
-  "version": "0.4.5",
-  "publisher": "beytronova",
-  "repository": "https://github.com/beytronova/beytron-startup"
+  "author": {
+    "name": "Beytronova",
+    "url": "https://github.com/beytronova"
+  },
+  "homepage": "https://github.com/beytronova/beytron-startup",
+  "repository": "https://github.com/beytronova/beytron-startup",
+  "license": "MIT",
+  "keywords": [
+    "startup",
+    "agile",
+    "codex",
+    "agents",
+    "product-development",
+    "mobile-development",
+    "github",
+    "jira"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Beytron Startup",
+    "shortDescription": "Agile AI delivery system for startup product development",
+    "longDescription": "Beytron Startup provides AI-readable roles, workflows, skills, approval gates, Jira/GitHub delivery playbooks, repo bootstrap guidance, validation scenarios, and mobile development hardening for moving ideas from discovery to delivery.",
+    "developerName": "Beytronova",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/beytronova/beytron-startup",
+    "defaultPrompt": [
+      "Use Beytron Startup to route this idea from discovery to PRD",
+      "Use Beytron Startup to turn approved Jira tickets into a development plan",
+      "Use Beytron Startup to review a mobile feature workflow"
+    ],
+    "brandColor": "#111827",
+    "screenshots": []
+  }
 }
