@@ -8,6 +8,28 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.5] - Marketplace Installation Wrapper
+
+### Added
+
+- Marketplace-compatible plugin wrapper at `plugins/codex/`.
+- Marketplace manifest at `plugins/codex/.codex-plugin/plugin.json`.
+- Marketplace entry skill at `plugins/codex/skills/beytron-startup/SKILL.md`.
+- Marketplace wrapper README at `plugins/codex/README.md`.
+
+### Changed
+
+- Root plugin manifest version updated to `0.4.5`.
+- `INSTALL.md` now documents Codex **Add plugin marketplace** settings:
+  - Source: `beytronova/beytron-startup`
+  - Git ref: `main`
+  - Sparse paths: `plugins/codex`
+
+### Operational Notes
+
+- This fixes marketplace installation errors where Codex expected a plugin manifest under the sparse marketplace path.
+- The canonical full operating model remains in the repository root.
+
 ## [0.4.4] - iOS Development Hardening
 
 ### Added
