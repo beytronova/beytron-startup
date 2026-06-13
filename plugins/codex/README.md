@@ -10,6 +10,26 @@ Git ref: main
 Sparse paths: plugins/codex
 ```
 
+If the shorthand source fails, retry with:
+
+```text
+Source: https://github.com/beytronova/beytron-startup.git
+Git ref: main
+Sparse paths: plugins/codex
+```
+
+With the sparse path applied, this directory becomes the marketplace root. The supported manifest is:
+
+```text
+.codex-plugin/plugin.json
+```
+
+The manifest uses the supported Codex plugin schema and points Codex to the wrapper skill directory:
+
+```text
+skills/
+```
+
 The canonical source repository remains:
 
 ```text
