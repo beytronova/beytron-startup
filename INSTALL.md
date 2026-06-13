@@ -39,11 +39,26 @@ Sparse paths:
 plugins/codex
 ```
 
+If the shorthand source still resolves to an invalid marketplace file, retry with the full Git URL:
+
+```text
+Source:
+https://github.com/beytronova/beytron-startup.git
+
+Git ref:
+main
+
+Sparse paths:
+plugins/codex
+```
+
 This works because the marketplace-compatible plugin manifest lives at:
 
 ```text
 plugins/codex/.codex-plugin/plugin.json
 ```
+
+The manifest uses the supported Codex plugin schema with `name`, `version`, `description`, `author`, `homepage`, `repository`, `license`, `keywords`, `skills`, and `interface` fields.
 
 Do not use a GitHub blob URL to `plugin.json` as the source.
 
@@ -102,9 +117,12 @@ If Codex does not follow the plugin:
 - Confirm the repository is accessible.
 - For marketplace installation, confirm `plugins/codex` is used as Sparse paths.
 - Confirm `plugins/codex/.codex-plugin/plugin.json` exists.
+- Confirm the marketplace manifest version is `0.4.6` or newer.
 - Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
 - Confirm target product repositories also have their own `AGENTS.md`.
+
+If Codex still reports `marketplace root does not contain a supported manifest`, close and reopen the Add plugin marketplace dialog, then retry with the full Git URL shown above. The dialog may keep a stale staged copy from a previous failed attempt.
 
 ## Safe Start Prompt
 
