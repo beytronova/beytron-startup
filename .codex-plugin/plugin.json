@@ -1,7 +1,7 @@
 {
   "name": "beytron-startup",
-  "version": "0.4.6",
-  "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, Flutter Android and iOS hardening, marketplace wrapper, and governance for startup product development.",
+  "version": "0.4.7",
+  "description": "Operational agile AI delivery roles, workflows, skills, routing registries, centralized approvals, handoffs, templates, playbooks, validation, security, Flutter Android and iOS hardening, named marketplace wrapper, and governance for startup product development.",
   "author": {
     "name": "Beytronova",
     "url": "https://github.com/beytronova"
