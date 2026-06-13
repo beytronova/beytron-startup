@@ -26,7 +26,7 @@ Use it to guide:
 
 ## Add Through Codex Plugin Marketplace Dialog
 
-If you are using Codex's **Add plugin marketplace** dialog, use the named marketplace wrapper:
+If you are using Codex's **Add plugin marketplace** dialog, add the repository as a marketplace root:
 
 ```text
 Source:
@@ -36,27 +36,39 @@ Git ref:
 main
 
 Sparse paths:
-plugins/beytron-startup
+
 ```
 
-This works because the marketplace-compatible plugin manifest lives at:
+Leave `Sparse paths` empty.
+
+This works because the marketplace manifest now lives at:
+
+```text
+.agents/plugins/marketplace.json
+```
+
+That marketplace manifest points to the plugin at:
+
+```text
+./plugins/beytron-startup
+```
+
+The plugin manifest lives at:
 
 ```text
 plugins/beytron-startup/.codex-plugin/plugin.json
 ```
 
-With the sparse path applied, `plugins/beytron-startup` becomes the marketplace root and exposes:
+Do not use a GitHub blob URL to `plugin.json` as the source.
+Do not put `plugins/beytron-startup` in `Sparse paths` when adding the marketplace; Codex needs the repository root so it can read `.agents/plugins/marketplace.json`.
+
+## Plugin Wrapper
+
+The recommended plugin wrapper is:
 
 ```text
-.codex-plugin/plugin.json
-skills/
+plugins/beytron-startup
 ```
-
-The manifest uses the supported Codex plugin schema with `name`, `version`, `description`, `author`, `homepage`, `repository`, `license`, `keywords`, `skills`, and `interface` fields.
-
-Do not use a GitHub blob URL to `plugin.json` as the source.
-
-## Legacy Wrapper
 
 The older wrapper remains available at:
 
@@ -64,7 +76,7 @@ The older wrapper remains available at:
 plugins/codex
 ```
 
-Prefer `plugins/beytron-startup` for new installs because its folder name matches the plugin name and avoids ambiguity with Codex's own product name.
+Prefer `plugins/beytron-startup` because its folder name matches the plugin name and avoids ambiguity with Codex's own product name.
 
 ## Root Plugin Manifest
 
@@ -74,7 +86,7 @@ The repository also keeps a root plugin manifest at:
 .codex-plugin/plugin.json
 ```
 
-Use the root manifest only in environments that support adding a repository directly as a plugin source without marketplace sparse paths.
+The marketplace install path should still use `.agents/plugins/marketplace.json` at the repository root.
 
 ## Prerequisites
 
@@ -119,14 +131,16 @@ Expected behavior:
 If Codex does not follow the plugin:
 
 - Confirm the repository is accessible.
-- For marketplace installation, confirm `plugins/beytron-startup` is used as Sparse paths.
+- Confirm `Sparse paths` is empty when adding the marketplace.
+- Confirm `.agents/plugins/marketplace.json` exists.
+- Confirm the marketplace entry points to `./plugins/beytron-startup`.
 - Confirm `plugins/beytron-startup/.codex-plugin/plugin.json` exists.
-- Confirm the marketplace manifest version is `0.4.7` or newer.
+- Confirm the marketplace manifest version is `0.4.8` or newer.
 - Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
 - Confirm target product repositories also have their own `AGENTS.md`.
 
-If Codex still reports `marketplace root does not contain a supported manifest`, close and reopen the Add plugin marketplace dialog, then retry with the full Git URL shown above. The dialog may keep a stale staged copy from a previous failed attempt.
+If Codex still reports `marketplace root does not contain a supported manifest`, close and reopen the Add plugin marketplace dialog, then retry with `Sparse paths` empty. The dialog may keep a stale staged copy from a previous failed attempt.
 
 ## Safe Start Prompt
 
