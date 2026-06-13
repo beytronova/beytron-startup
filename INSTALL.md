@@ -20,9 +20,12 @@ Use it to guide:
 - Architecture planning
 - Jira backlog creation
 - GitHub implementation workflows
+- Web, backend, Flutter, iOS, and Android development
 - QA and test automation
+- Security review
 - Release planning
 - Growth and analytics follow-up
+- Repository bootstrap after approval
 
 ## Add Through Codex Plugin Marketplace Dialog
 
@@ -64,6 +67,31 @@ The visible marketplace skills live under:
 ```text
 plugins/beytron-startup/skills/*/SKILL.md
 ```
+
+## Visible Marketplace Skills
+
+Version `0.5.0` exposes Beytron's core operating skill catalog in the marketplace wrapper:
+
+- `beytron-startup`
+- `governance-approval`
+- `product-discovery`
+- `prd-writing`
+- `ux-product-design`
+- `architecture`
+- `jira-backlog`
+- `github-delivery`
+- `web-development`
+- `backend-development`
+- `flutter-development`
+- `ios-development`
+- `android-development`
+- `qa-testing`
+- `automation-testing`
+- `release-management`
+- `growth-seo`
+- `data-analytics`
+- `security-review`
+- `repo-bootstrap`
 
 Do not use a GitHub blob URL to `plugin.json` as the source.
 Do not put `plugins/beytron-startup` in `Sparse paths` when adding the marketplace; Codex needs the repository root so it can read `.agents/plugins/marketplace.json`.
@@ -141,7 +169,7 @@ If Codex does not follow the plugin:
 - Confirm `.agents/plugins/marketplace.json` exists.
 - Confirm the marketplace entry points to `./plugins/beytron-startup`.
 - Confirm `plugins/beytron-startup/.codex-plugin/plugin.json` exists.
-- Confirm the plugin manifest version is `0.4.9` or newer.
+- Confirm the plugin manifest version is `0.5.0` or newer.
 - Confirm visible skills exist under `plugins/beytron-startup/skills/*/SKILL.md` and include YAML frontmatter.
 - Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
