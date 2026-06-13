@@ -8,6 +8,25 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.8] - Codex Marketplace Root Manifest
+
+### Added
+
+- Codex marketplace manifest at `.agents/plugins/marketplace.json`.
+- Marketplace entry for `beytron-startup` pointing to `./plugins/beytron-startup`.
+
+### Changed
+
+- `INSTALL.md` now documents the correct marketplace installation flow:
+  - Source: `https://github.com/beytronova/beytron-startup.git`
+  - Git ref: `main`
+  - Sparse paths: empty
+
+### Operational Notes
+
+- Codex's **Add plugin marketplace** dialog validates the marketplace root, so it must be able to read `.agents/plugins/marketplace.json` from the repository root.
+- Do not use `plugins/beytron-startup` as the sparse path when adding the marketplace.
+
 ## [0.4.7] - Named Marketplace Wrapper
 
 ### Added
@@ -161,7 +180,7 @@ This project follows semantic versioning for plugin-level changes:
 
 - Unknown approval statuses are blockers.
 - If any file conflicts with centralized approval definitions, `governance/approval-statuses.md` and `config/approval-statuses.yaml` win.
-- New roles must create/update required role, skill, registry, workflow, handoff, checklist, example, validation, and changelog artifacts as applicable.
+- New roles must create/update required role, skill, registry, workflow, handoff, checklist, example, validation, and changelog when affected.
 
 ## [0.4.0] - Usage, Execution, Bootstrap, Validation, and Security Hardening
 
