@@ -41,7 +41,7 @@ Sparse paths:
 
 Leave `Sparse paths` empty.
 
-This works because the marketplace manifest now lives at:
+This works because the marketplace manifest lives at:
 
 ```text
 .agents/plugins/marketplace.json
@@ -57,6 +57,12 @@ The plugin manifest lives at:
 
 ```text
 plugins/beytron-startup/.codex-plugin/plugin.json
+```
+
+The visible marketplace skills live under:
+
+```text
+plugins/beytron-startup/skills/*/SKILL.md
 ```
 
 Do not use a GitHub blob URL to `plugin.json` as the source.
@@ -135,7 +141,8 @@ If Codex does not follow the plugin:
 - Confirm `.agents/plugins/marketplace.json` exists.
 - Confirm the marketplace entry points to `./plugins/beytron-startup`.
 - Confirm `plugins/beytron-startup/.codex-plugin/plugin.json` exists.
-- Confirm the marketplace manifest version is `0.4.8` or newer.
+- Confirm the plugin manifest version is `0.4.9` or newer.
+- Confirm visible skills exist under `plugins/beytron-startup/skills/*/SKILL.md` and include YAML frontmatter.
 - Confirm `AGENTS.md` or the marketplace entry skill is read before task execution.
 - Confirm the user prompt explicitly asks to use Beytron Startup when needed.
 - Confirm target product repositories also have their own `AGENTS.md`.
