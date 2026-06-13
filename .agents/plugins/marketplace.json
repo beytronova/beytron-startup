@@ -1,0 +1,20 @@
+{
+  "name": "beytron-startup-marketplace",
+  "interface": {
+    "displayName": "Beytron Startup Marketplace"
+  },
+  "plugins": [
+    {
+      "name": "beytron-startup",
+      "source": {
+        "source": "local",
+        "path": "./plugins/beytron-startup"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
