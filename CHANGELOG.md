@@ -8,6 +8,28 @@ This project follows semantic versioning for plugin-level changes:
 - Minor: new roles, skills, workflows, integrations, checklists, examples, or governance files.
 - Patch: clarifications, typo fixes, non-breaking documentation improvements, or small template refinements.
 
+## [0.4.7] - Named Marketplace Wrapper
+
+### Added
+
+- Recommended marketplace-compatible plugin wrapper at `plugins/beytron-startup/`.
+- Supported manifest at `plugins/beytron-startup/.codex-plugin/plugin.json`.
+- Marketplace entry skill at `plugins/beytron-startup/skills/beytron-startup/SKILL.md`.
+
+### Changed
+
+- Root plugin manifest version updated to `0.4.7`.
+- `INSTALL.md` now recommends `plugins/beytron-startup` as the sparse path.
+- `plugins/codex` is now treated as a legacy wrapper path.
+
+### Operational Notes
+
+- Prefer `plugins/beytron-startup` because the folder name matches the plugin name and avoids ambiguity with Codex's own product name.
+- Recommended marketplace settings are:
+  - Source: `https://github.com/beytronova/beytron-startup.git`
+  - Git ref: `main`
+  - Sparse paths: `plugins/beytron-startup`
+
 ## [0.4.6] - Supported Marketplace Manifest Schema
 
 ### Changed
